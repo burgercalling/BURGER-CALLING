@@ -1,0 +1,3257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BURGER CALLING — Chhattisgarh's viral luxury quick-service burger brand scaling across India. Answer The Craving. Order on Zomato or become a franchise partner." />
+  <meta name="keywords" content="Burger Calling, Burger Calling Chhattisgarh, Zomato Burger Calling Chhattisgarh, Burger Franchise Chhattisgarh, Luxury Fast Food India, QSR Startup" />
+  <meta name="theme-color" content="#FF6B00" />
+  <title>BURGER CALLING | Chhattisgarh — Luxury QSR &amp; India Franchise Brand</title>
+
+  <!-- Google Fonts: Poppins (ExtraBold/Bold) & Inter (Regular/Medium/SemiBold) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- jsPDF for High-Resolution Vector PDF Prospectus Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF6B00',
+              orangeDark: '#E05A00',
+              black: '#1A1A1A',
+              obsidian: '#111111',
+              gold: '#FFC107',
+              surface: '#F9FAFB',
+            }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 10px 40px -10px rgba(26, 26, 26, 0.08)',
+            'glow': '0 12px 32px -4px rgba(255, 107, 0, 0.42)',
+            'card': '0 20px 50px rgba(0, 0, 0, 0.06)',
+          },
+          borderRadius: {
+            '2xl': '20px',
+            '3xl': '28px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       CUSTOM STYLES, SCROLLBAR, GLASSMORPHISM & MICRO-INTERACTIONS
+       ========================================================================== */
+    :root {
+      --primary: #FF6B00;
+      --secondary: #1A1A1A;
+      --bg: #FFFFFF;
+      --accent: #FFC107;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1A1A1A;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1A1A1A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #FF6B00, #FFC107);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF6B00;
+    }
+
+    /* Top Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3.5px;
+      width: 0%;
+      background: linear-gradient(90deg, #FF6B00 0%, #FFC107 100%);
+      z-index: 9999;
+      transition: width 0.08s ease-out;
+    }
+
+    /* Page Loader */
+    #page-loader {
+      position: fixed;
+      inset: 0;
+      background: #1A1A1A;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+    }
+    #page-loader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-bar {
+      width: 180px;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .loader-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #FF6B00, #FFC107);
+      animation: loadFill 0.55s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+    @keyframes loadFill {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    /* Glassmorphism Utilities */
+    .glass-light {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+    }
+    .glass-dark {
+      background: rgba(26, 26, 26, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Navbar Transitions */
+    #navbar {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #navbar.scrolled {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    .nav-link.active {
+      color: #FF6B00;
+      font-weight: 600;
+    }
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2.5px;
+      background: #FF6B00;
+      border-radius: 99px;
+      transition: width 0.3s ease;
+      margin-top: 2px;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Animated Background Blobs */
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(24px, -28px) scale(1.06); }
+      66% { transform: translate(-18px, 18px) scale(0.96); }
+    }
+    .animate-blob {
+      animation: blobFloat 10s infinite ease-in-out;
+    }
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+
+    /* Typing Cursor */
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.1em;
+      background-color: #FF6B00;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blinkCursor 0.8s infinite;
+    }
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    /* Scroll Down Mouse Indicator */
+    @keyframes scrollWheel {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(10px); opacity: 0; }
+    }
+    .mouse-wheel {
+      animation: scrollWheel 1.6s infinite ease-out;
+    }
+
+    /* Premium Button Ripple & Glow */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FF6B00 0%, #FF8800 100%);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(255, 107, 0, 0.45);
+    }
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      transform: scale(0);
+      animation: rippleAnim 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Menu & Feature Card Hover Lift + Zoom */
+    .premium-card {
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.38s ease, border-color 0.3s ease;
+    }
+    .premium-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 54px -12px rgba(26, 26, 26, 0.14);
+      border-color: rgba(255, 107, 0, 0.35);
+    }
+    .premium-card .card-img {
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .premium-card:hover .card-img {
+      transform: scale(1.08);
+    }
+
+    /* Floating Labels for Contact & Franchise Forms */
+    .floating-group {
+      position: relative;
+    }
+    .floating-input {
+      width: 100%;
+      padding: 1.15rem 1rem 0.55rem 1rem;
+      border-radius: 16px;
+      border: 1.5px solid #E5E7EB;
+      background: #FFFFFF;
+      font-size: 0.95rem;
+      color: #1A1A1A;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .floating-input:focus {
+      border-color: #FF6B00;
+      box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.12);
+    }
+    .floating-label {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.92rem;
+      color: #6B7280;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    textarea.floating-input ~ .floating-label {
+      top: 1.25rem;
+      transform: none;
+    }
+    .floating-input:focus ~ .floating-label,
+    .floating-input:not(:placeholder-shown) ~ .floating-label {
+      top: 0.42rem;
+      transform: none;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #FF6B00;
+    }
+
+    /* Masonry Gallery Layout */
+    .masonry-grid {
+      columns: 1;
+      column-gap: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .masonry-grid { columns: 2; }
+    }
+    @media (min-width: 1024px) {
+      .masonry-grid { columns: 3; }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Swiper Custom Pagination */
+    .swiper-pagination-bullet {
+      background: #D1D5DB;
+      opacity: 1;
+      width: 10px;
+      height: 10px;
+      transition: all 0.3s ease;
+    }
+    .swiper-pagination-bullet-active {
+      background: #FF6B00;
+      width: 28px;
+      border-radius: 99px;
+    }
+
+    /* Kinetic Marquee Ticker */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 28s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* 3D Perspective Tilt & Specular Sheen */
+    .tilt-stage {
+      perspective: 1200px;
+    }
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+      will-change: transform;
+    }
+    .specular-sheen {
+      position: relative;
+      overflow: hidden;
+    }
+    .specular-sheen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-22deg);
+      transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 20;
+    }
+    .specular-sheen:hover::before {
+      left: 145%;
+    }
+
+    /* Subtle Pulse Ring for Signature & Franchise Badges */
+    @keyframes ringExpand {
+      0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.55); }
+      70% { box-shadow: 0 0 0 14px rgba(255, 107, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+    }
+    .pulse-ring-orange {
+      animation: ringExpand 2.4s infinite;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       PAGE LOADER WITH BURGER CALLING EMBLEM
+       ======================================================================== -->
+  <div id="page-loader" role="status" aria-label="Loading BURGER CALLING">
+    <div class="relative flex items-center justify-center">
+      <div class="absolute w-24 h-24 rounded-full bg-brand-gold/25 animate-ping"></div>
+      <!-- Official Burger Calling Circular Emblem -->
+      <svg class="w-24 h-24 relative z-10 drop-shadow-xl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="57" fill="#0B0B0B" stroke="#F4B400" stroke-width="3.5"/>
+        <path d="M34 50C34 36.7452 45.6406 26 60 26C74.3594 26 86 36.7452 86 50H34Z" fill="#F4B400"/>
+        <ellipse cx="47" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="55.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="64.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="73" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="42" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="51" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="60" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="69" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <ellipse cx="78" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+        <rect x="33" y="53.5" width="54" height="4.8" rx="2.4" fill="#F4B400"/>
+        <path d="M34 61.5H86V65C86 69.4183 82.4183 73 78 73H42C37.5817 73 34 69.4183 34 65V61.5Z" fill="#F4B400"/>
+        <path d="M50 61.5H70L66.5 67.5C65.7 68.8 64.3 69.5 62.8 69.5H57.2C55.7 69.5 54.3 68.8 53.5 67.5L50 61.5Z" fill="#0B0B0B"/>
+        <text x="60" y="88" text-anchor="middle" fill="#F4B400" font-family="Poppins, sans-serif" font-weight="800" font-size="11.2" letter-spacing="-0.2">Burger Calling</text>
+      </svg>
+    </div>
+    <p class="font-heading text-white font-extrabold tracking-widest text-lg mt-5">BURGER <span class="text-brand-gold">CALLING</span></p>
+    <p class="text-xs text-green-400 font-semibold tracking-widest uppercase mt-1">100% Pure Veg Cafe • Chhattisgarh</p>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+
+  <!-- ========================================================================
+       1. NAVIGATION (FIXED GLASSMORPHIC -> SOLID WHITE ON SCROLL)
+       ======================================================================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+        <svg class="w-12 h-12 transition-transform duration-300 group-hover:rotate-6 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="57" fill="#0B0B0B" stroke="#F4B400" stroke-width="4"/>
+          <path d="M34 50C34 36.7452 45.6406 26 60 26C74.3594 26 86 36.7452 86 50H34Z" fill="#F4B400"/>
+          <ellipse cx="47" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="55.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="64.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="73" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="42" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="51" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="60" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="69" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <ellipse cx="78" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+          <rect x="33" y="53.5" width="54" height="4.8" rx="2.4" fill="#F4B400"/>
+          <path d="M34 61.5H86V65C86 69.4183 82.4183 73 78 73H42C37.5817 73 34 69.4183 34 65V61.5Z" fill="#F4B400"/>
+          <path d="M50 61.5H70L66.5 67.5C65.7 68.8 64.3 69.5 62.8 69.5H57.2C55.7 69.5 54.3 68.8 53.5 67.5L50 61.5Z" fill="#0B0B0B"/>
+          <text x="60" y="88" text-anchor="middle" fill="#F4B400" font-family="Poppins, sans-serif" font-weight="800" font-size="11.2" letter-spacing="-0.2">Burger Calling</text>
+        </svg>
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-tight text-brand-black block leading-none">
+            BURGER <span class="text-brand-orange">CALLING</span>
+          </span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-green-700 block mt-0.5">100% Pure Veg Cafe • Chhattisgarh</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 font-body text-sm font-medium text-gray-700" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active transition-colors hover:text-brand-orange">Home</a>
+        <a href="#about" class="nav-link transition-colors hover:text-brand-orange">Story</a>
+        <a href="#why-us" class="nav-link transition-colors hover:text-brand-orange">Standards</a>
+        <a href="#menu" class="nav-link transition-colors hover:text-brand-orange">Menu</a>
+        <a href="#special" class="nav-link transition-colors hover:text-brand-orange">Signature</a>
+        <a href="#franchise" class="nav-link transition-colors hover:text-brand-orange">Franchise</a>
+        <a href="#gallery" class="nav-link transition-colors hover:text-brand-orange">Gallery</a>
+        <a href="#contact" class="nav-link transition-colors hover:text-brand-orange">Contact</a>
+      </nav>
+
+      <!-- Right Actions: Direct Zomato Link + Franchise CTA + Mobile Menu Button -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Direct Zomato Order Pill -->
+        <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-2xl bg-[#E23744]/10 border border-[#E23744]/25 text-[#E23744] font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#E23744] hover:text-white transition-all shadow-sm">
+          <i class="fa-solid fa-motorcycle text-xs"></i>
+          <span>Zomato</span>
+        </a>
+
+        <!-- Own a Franchise CTA -->
+        <a href="#franchise" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-brand-black text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-brand-orange transition-colors shadow-md">
+          <span>Own a Franchise</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+        </a>
+
+        <!-- Mobile Hamburger Trigger -->
+        <button id="mobile-menu-btn" type="button" aria-label="Open Menu" class="lg:hidden p-3 rounded-2xl bg-brand-black text-white hover:bg-brand-orange transition-colors">
+          <i class="fa-solid fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-Out Navigation Drawer -->
+  <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+  <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-gray-100">
+        <span class="font-heading font-extrabold text-lg text-brand-black">BURGER <span class="text-brand-orange">CALLING</span></span>
+        <button id="close-mobile-drawer" type="button" aria-label="Close Menu" class="w-10 h-10 rounded-xl bg-gray-100 text-brand-black hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-2.5 mt-6 font-heading font-bold text-base text-brand-black">
+        <a href="#home" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">About Brand</a>
+        <a href="#why-us" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">Why Choose Us</a>
+        <a href="#menu" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">Featured Menu</a>
+        <a href="#special" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">Today's Special</a>
+        <a href="#franchise" class="mobile-nav-link py-2.5 px-4 rounded-xl bg-orange-50 text-brand-orange">🤝 Franchise Partner</a>
+        <a href="#gallery" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">Gallery</a>
+        <a href="#contact" class="mobile-nav-link py-2.5 px-4 rounded-xl hover:bg-orange-50 hover:text-brand-orange transition-colors">Contact Us</a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-gray-100 space-y-2.5">
+      <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-2xl bg-[#E23744] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow">
+        <i class="fa-solid fa-motorcycle"></i> Order Live on Zomato
+      </a>
+      <button type="button" onclick="openFranchiseModal(); closeMobileMenu();" class="w-full btn-primary text-white font-heading font-bold py-3.5 rounded-2xl text-xs uppercase tracking-wider shadow-glow">
+        Apply For Franchise
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       2. HERO SECTION (100% PURE VEG CAFE + AUTO-SLIDING SHOWCASE)
+       ======================================================================== -->
+  <section id="home" class="relative min-h-screen flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-br from-white via-orange-50/40 to-amber-50/30">
+    <!-- Animated Background Blobs -->
+    <div class="absolute top-16 -left-24 w-96 h-96 bg-brand-orange/15 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+    <div class="absolute bottom-10 -right-24 w-[28rem] h-[28rem] bg-brand-gold/20 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Left Column: Brand Story, Headline & CTAs -->
+        <div class="lg:col-span-6 text-left">
+          <div class="hero-stagger inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/25 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-600 animate-pulse"></span>
+            <span class="font-heading font-bold text-xs uppercase tracking-widest text-green-800">100% Pure Veg Cafe • Chhattisgarh</span>
+          </div>
+
+          <h1 class="hero-stagger font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-brand-black tracking-tight leading-[1.08]">
+            Answer The <span class="text-brand-orange">Burger</span> <span class="underline decoration-brand-gold decoration-4 underline-offset-8">Calling.</span>
+          </h1>
+
+          <!-- Dynamic Typing Tagline -->
+          <div class="hero-stagger mt-5 min-h-[2rem] flex items-center">
+            <p class="font-heading font-bold text-lg sm:text-xl text-gray-800">
+              <span id="typing-tagline">Your Burger. Your Business. Your Brand.</span><span class="typing-cursor"></span>
+            </p>
+          </div>
+
+          <p class="hero-stagger text-gray-600 text-base sm:text-lg leading-relaxed mt-4 max-w-xl">
+            Born in <strong class="text-brand-black">Chhattisgarh, India</strong>. 100% pure-vegetarian burgers, molten lava fries, and signature combos—now expanding across Chhattisgarh.
+          </p>
+
+          <!-- Primary CTA Buttons -->
+          <div class="hero-cta-group flex flex-wrap items-center gap-4 mt-8">
+            <a href="#menu" class="btn-primary ripple-trigger px-7 py-4 rounded-2xl text-white font-heading font-bold text-sm uppercase tracking-wider shadow-glow inline-flex items-center gap-2.5">
+              <span>🍔 Explore Pure-Veg Menu</span>
+              <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+            <a href="#franchise" class="px-7 py-4 rounded-2xl bg-brand-black text-white hover:bg-brand-orange font-heading font-bold text-sm uppercase tracking-wider transition-colors shadow-lg inline-flex items-center gap-2.5">
+              <span>🤝 Own a Franchise</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Auto-Sliding Hero Burger & Outlet Showcase with 3D Tilt & Upload Support -->
+        <div id="hero-burger-wrapper" class="lg:col-span-6 relative tilt-stage">
+          <div id="hero-tilt-card" class="tilt-card specular-sheen relative rounded-3xl bg-brand-black p-4 sm:p-5 shadow-2xl border border-gray-800">
+            <!-- Auto-Sliding Hero Swiper -->
+            <div class="swiper hero-showcase-swiper relative rounded-2xl overflow-hidden aspect-[4/3] bg-gray-900">
+              <div class="swiper-wrapper" id="hero-swiper-wrapper">
+                <!-- Slide 1: Requested Signature Burger -->
+                <div class="swiper-slide relative w-full h-full">
+                  <img
+                    src="https://b.zmtcdn.com/data/dish_photos/60e/562ceec9bdcab8967d6808c3f6e1360e.jpeg"
+                    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85';"
+                    alt="100% Pure Veg Cafe Premium Veggie Cheese Double Patty Burger"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3 text-white">
+                    <div>
+                      <span class="px-3 py-1 rounded-full bg-green-600 text-white font-heading font-bold text-[10px] uppercase tracking-wider">100% Pure Veg Cafe</span>
+                      <h2 class="font-heading font-extrabold text-lg sm:text-xl mt-1.5">Premium Veggie Cheese Double Patty Burger</h2>
+                    </div>
+                    <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 rounded-xl bg-brand-orange text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-black transition-colors">
+                      Zomato →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Calling Deluxe Paneer Veggie Patty Cheese Burger -->
+                <div class="swiper-slide relative w-full h-full">
+                  <img
+                    src="https://b.zmtcdn.com/data/dish_photos/134/6213fd80d03cb1528011866dd926c134.png"
+                    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=85';"
+                    alt="100% Pure Veg Cafe Calling Deluxe Paneer Veggie Patty Cheese Burger"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3 text-white">
+                    <div>
+                      <span class="px-3 py-1 rounded-full bg-green-600 text-white font-heading font-bold text-[10px] uppercase tracking-wider">100% Pure Veg Cafe</span>
+                      <h2 class="font-heading font-extrabold text-lg sm:text-xl mt-1.5">Calling Deluxe Paneer Veggie Patty Cheese Burger</h2>
+                    </div>
+                    <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 rounded-xl bg-brand-orange text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-black transition-colors">
+                      Zomato →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Peri-Peri Cheesy Lava Burger -->
+                <div class="swiper-slide relative w-full h-full">
+                  <img
+                    src="https://b.zmtcdn.com/data/dish_photos/426/a128500eff5b1423fa74d1e85fbef426.jpeg"
+                    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=1000&q=85';"
+                    alt="100% Pure Veg Cafe Peri-Peri Cheesy Lava Burger"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3 text-white">
+                    <div>
+                      <span class="px-3 py-1 rounded-full bg-green-600 text-white font-heading font-bold text-[10px] uppercase tracking-wider">100% Pure Veg Cafe</span>
+                      <h2 class="font-heading font-extrabold text-lg sm:text-xl mt-1.5">Peri-Peri Cheesy Lava Burger</h2>
+                    </div>
+                    <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 rounded-xl bg-brand-orange text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-black transition-colors">
+                      Zomato →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Slide 4: Peri-Peri Cheesy Lava French Fries -->
+                <div class="swiper-slide relative w-full h-full">
+                  <img
+                    src="https://b.zmtcdn.com/data/dish_photos/31c/70c7fe9f406a93e8117b543cabd3931c.jpeg"
+                    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1000&q=85';"
+                    alt="100% Pure Veg Cafe Peri-Peri Cheesy Lava French Fries"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3 text-white">
+                    <div>
+                      <span class="px-3 py-1 rounded-full bg-green-600 text-white font-heading font-bold text-[10px] uppercase tracking-wider">100% Pure Veg Cafe</span>
+                      <h2 class="font-heading font-extrabold text-lg sm:text-xl mt-1.5">Peri-Peri Cheesy Lava French Fries</h2>
+                    </div>
+                    <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 rounded-xl bg-brand-orange text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-black transition-colors">
+                      Zomato →
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Slider Pagination Dots -->
+              <div class="swiper-pagination !bottom-1.5"></div>
+            </div>
+
+            <!-- Floating Glassmorphic Card 1: Signature Quality -->
+            <div class="hero-float-badge glass-light rounded-2xl p-3.5 sm:p-4 shadow-soft absolute -top-5 -left-3 sm:-left-6 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-brand-orange text-white flex items-center justify-center text-lg shadow">
+                <i class="fa-solid fa-fire-burner"></i>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-xs sm:text-sm text-brand-black">Freshly Grilled to Order</p>
+                <p class="text-[11px] text-gray-600">Signature Pure-Veg Creations</p>
+              </div>
+            </div>
+
+            <!-- Floating Glassmorphic Card 2: Chhattisgarh Network -->
+            <div class="hero-float-badge glass-dark text-white rounded-2xl p-3.5 sm:p-4 shadow-xl absolute -bottom-5 -right-2 sm:-right-6 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-brand-gold text-brand-black flex items-center justify-center text-lg font-bold">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-xs sm:text-sm text-white">Chhattisgarh Expansion</p>
+                <p class="text-[11px] text-brand-gold font-medium">Your Burger. Your Business. Your Brand.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       KINETIC BRAND MARQUEE TICKER
+       ======================================================================== -->
+  <div class="bg-brand-black text-white py-4 overflow-hidden border-y border-gray-800 select-none">
+    <div class="marquee-track flex items-center gap-10 font-heading font-extrabold text-xs sm:text-sm uppercase tracking-[0.2em]">
+      <span class="flex items-center gap-3 text-brand-gold"><i class="fa-solid fa-burger"></i> BURGER CALLING BILASPUR</span>
+      <span class="text-white/30">✦</span>
+      <span>100% PURE VEG CAFE</span>
+      <span class="text-white/30">✦</span>
+      <span class="text-brand-orange">YOUR BURGER. YOUR BUSINESS. YOUR BRAND.</span>
+      <span class="text-white/30">✦</span>
+      <span>CHHATTISGARH FRANCHISE NETWORK</span>
+      <span class="text-white/30">✦</span>
+      <span>SIGNATURE HOUSE RECIPES</span>
+      <span class="text-white/30">✦</span>
+      <span class="flex items-center gap-3 text-brand-gold"><i class="fa-solid fa-burger"></i> BURGER CALLING BILASPUR</span>
+      <span class="text-white/30">✦</span>
+      <span>100% PURE VEG CAFE</span>
+      <span class="text-white/30">✦</span>
+      <span class="text-brand-orange">YOUR BURGER. YOUR BUSINESS. YOUR BRAND.</span>
+      <span class="text-white/30">✦</span>
+      <span>CHHATTISGARH FRANCHISE NETWORK</span>
+      <span class="text-white/30">✦</span>
+      <span>SIGNATURE HOUSE RECIPES</span>
+      <span class="text-white/30">✦</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       3. ABOUT BRAND (STORY, VISION, MISSION & PURE-VEG QUALITY)
+       ======================================================================== -->
+  <section id="about" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Visual Collage -->
+        <div class="lg:col-span-6 relative" data-aos="fade-right">
+          <div class="rounded-3xl overflow-hidden shadow-card border border-gray-100">
+            <img
+              src="https://b.zmtcdn.com/data/dish_photos/134/6213fd80d03cb1528011866dd926c134.png"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=85';"
+              alt="Calling Deluxe Paneer Veggie Patty Cheese Burger"
+              loading="lazy"
+              class="w-full h-[380px] sm:h-[440px] object-cover"
+            />
+          </div>
+          <div class="glass-light rounded-2xl p-5 shadow-xl max-w-xs -mt-12 ml-4 sm:ml-8 relative z-10 border border-gray-200">
+            <span class="text-[11px] font-heading font-bold uppercase tracking-widest text-brand-orange">Born in Chhattisgarh</span>
+            <h3 class="font-heading font-extrabold text-lg text-brand-black mt-1">Consistent Taste Across Every Outlet</h3>
+          </div>
+        </div>
+
+        <!-- Right Brand Story -->
+        <div class="lg:col-span-6" data-aos="fade-left">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs uppercase tracking-widest mb-3">
+            Our Story
+          </span>
+          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-black tracking-tight leading-tight">
+            Reimagining Pure-Veg <span class="text-brand-orange">Quick Service</span>
+          </h2>
+          <p class="text-gray-600 text-base leading-relaxed mt-5">
+            Operating across <strong class="text-brand-black">Chhattisgarh, India</strong>, <strong>Burger Calling</strong> crafts bold, 100% pure-vegetarian burgers and loaded sides—now inviting franchise partners statewide.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            <div class="p-5 rounded-2xl bg-brand-surface border border-gray-100">
+              <div class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center mb-3">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h3 class="font-heading font-bold text-base text-brand-black">Our Vision</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                Build Chhattisgarh’s strongest quick-service burger network with uniform taste and hospitality.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-brand-surface border border-gray-100">
+              <div class="w-10 h-10 rounded-xl bg-brand-black text-brand-gold flex items-center justify-center mb-3">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <h3 class="font-heading font-bold text-base text-brand-black">Our Mission</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                Empower business owners with turnkey store formats, staff training, and clear SOPs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       KINETIC BRAND MARQUEE TICKER
+       ======================================================================== -->
+  <div class="bg-brand-black text-white py-4 overflow-hidden border-y border-gray-800 select-none">
+    <div class="marquee-track flex items-center gap-10 font-heading font-extrabold text-xs sm:text-sm uppercase tracking-[0.2em]">
+      <span class="flex items-center gap-3 text-brand-gold"><i class="fa-solid fa-burger"></i> BURGER CALLING CHHATTISGARH</span>
+      <span class="text-white/30">✦</span>
+      <span>100% PURE VEG CAFE</span>
+      <span class="text-white/30">✦</span>
+      <span class="text-brand-orange">YOUR BURGER. YOUR BUSINESS. YOUR BRAND.</span>
+      <span class="text-white/30">✦</span>
+      <span>CHHATTISGARH FRANCHISE NETWORK</span>
+      <span class="text-white/30">✦</span>
+      <span>SIGNATURE HOUSE RECIPES</span>
+      <span class="text-white/30">✦</span>
+      <span class="flex items-center gap-3 text-brand-gold"><i class="fa-solid fa-burger"></i> BURGER CALLING CHHATTISGARH</span>
+      <span class="text-white/30">✦</span>
+      <span>100% PURE VEG CAFE</span>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-black">100% Pure-Veg Freshness</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">Crisp farm vegetables paired with signature patties and house sauces.</p>
+        </div>
+
+        <div class="why-card premium-card p-7 rounded-3xl bg-white border border-gray-100 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-black">Standardized Taste &amp; SOPs</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">Documented recipes and assembly workflows for uniform quality.</p>
+        </div>
+
+        <div class="why-card premium-card p-7 rounded-3xl bg-white border border-gray-100 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-orange-100 text-brand-orange flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-black">Fast QSR Assembly</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">Engineered for rapid dine-in, takeaway, and Zomato dispatch.</p>
+        </div>
+
+        <div class="why-card premium-card p-7 rounded-3xl bg-white border border-gray-100 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-black">Hygienic Modern Kitchens</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">Stainless-steel stations, strict hygiene checklists, and sealed packaging.</p>
+        </div>
+
+        <div class="why-card premium-card p-7 rounded-3xl bg-white border border-gray-100 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-black">Iconic Store Architecture</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">Black-and-gold fascia, illuminated emblems, and modular counters.</p>
+        </div>
+
+        <div class="why-card premium-card p-7 rounded-3xl bg-white border border-gray-100 shadow-soft">
+          <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-black">Youth &amp; Family Favorite</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">Peri-Peri lava burgers, crispy paneer, double patties, and value combos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. FEATURED MENU (ALL 35 AUTHENTIC BURGER CALLING ZOMATO ITEMS)
+       ======================================================================== -->
+  <section id="menu" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10" data-aos="fade-up">
+        <div>
+          <span class="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 font-heading font-bold text-xs uppercase tracking-widest mb-3">
+            100% Pure Veg Menu • Chhattisgarh
+          </span>
+          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-black tracking-tight">
+            Signature <span class="text-brand-orange">Burger Calling</span> Lineup
+          </h2>
+        </div>
+        <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="self-start lg:self-end inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#E23744] text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#c82333] transition-colors shadow-md">
+          <i class="fa-solid fa-motorcycle"></i>
+          <span>Order Live on Zomato</span>
+        </a>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2.5 mb-10" data-aos="fade-up">
+        <button type="button" data-filter="all" class="menu-filter-btn active px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-brand-black text-white transition-all">
+          All Creations
+        </button>
+        <button type="button" data-filter="peri-peri" class="menu-filter-btn px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">
+          Peri-Peri Burgers
+        </button>
+        <button type="button" data-filter="classic-burgers" class="menu-filter-btn px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">
+          Classic &amp; Tikki Burgers
+        </button>
+        <button type="button" data-filter="special-paneer" class="menu-filter-btn px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">
+          Special &amp; Paneer
+        </button>
+        <button type="button" data-filter="double-patty" class="menu-filter-btn px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">
+          Double Patty
+        </button>
+        <button type="button" data-filter="fries" class="menu-filter-btn px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">
+          French Fries
+        </button>
+        <button type="button" data-filter="combos" class="menu-filter-btn px-5 py-2.5 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">
+          Combos
+        </button>
+      </div>
+
+      <!-- Dynamic 35-Item Menu Grid -->
+      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. TODAY'S SPECIAL (CHEF'S SIGNATURE SPOTLIGHT)
+       ======================================================================== -->
+  <section id="special" class="py-20 lg:py-28 bg-brand-obsidian text-white relative overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="lg:col-span-6" data-aos="fade-right">
+          <div class="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-gray-900">
+            <img
+              src="https://b.zmtcdn.com/data/dish_photos/134/6213fd80d03cb1528011866dd926c134.png"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=85';"
+              alt="Calling Deluxe Paneer Veggie Patty Cheese Burger"
+              loading="lazy"
+              class="w-full h-[360px] sm:h-[430px] object-cover"
+            />
+            <span class="pulse-ring-orange absolute top-5 left-5 px-4 py-1.5 rounded-full bg-brand-orange text-white font-heading font-extrabold text-xs uppercase tracking-widest">
+              ★ Chef’s Signature Spotlight
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6" data-aos="fade-left">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/15 text-brand-gold font-heading font-bold text-xs uppercase tracking-widest mb-4">
+            100% Pure Veg House Icon • Chhattisgarh
+          </span>
+          <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
+            Calling Deluxe <span class="text-brand-gold">Paneer Veggie Patty</span> Cheese Burger
+          </h2>
+          <p class="text-gray-300 text-base leading-relaxed mt-5">
+            Golden-crisp spiced paneer over our herb veggie patty, layered with melted cheddar and signature house sauces inside a toasted sesame bun.
+          </p>
+
+          <div class="flex flex-wrap gap-2.5 mt-6">
+            <span class="px-3.5 py-1.5 rounded-xl bg-white/10 text-xs font-semibold text-green-400">100% Pure Vegetarian</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-white/10 text-xs font-semibold text-brand-gold">Crispy Paneer + Veggie Stack</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-white/10 text-xs font-semibold text-white">Signature House Sauces</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 mt-8">
+            <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="btn-primary ripple-trigger px-7 py-4 rounded-2xl text-white font-heading font-bold text-xs uppercase tracking-wider shadow-glow inline-flex items-center gap-2">
+              <i class="fa-solid fa-motorcycle"></i>
+              <span>Order Now on Zomato</span>
+            </a>
+            <a href="#menu" class="px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition-colors">
+              Explore Full Menu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. FRANCHISE OPPORTUNITY & CHHATTISGARH EXPANSION HUB
+       ======================================================================== -->
+  <section id="franchise" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <!-- Franchise Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs uppercase tracking-widest mb-3">
+          Franchise Opportunity • Chhattisgarh
+        </span>
+        <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-brand-black tracking-tight">
+          Own Your Business. <span class="text-brand-orange">Own Your Brand.</span>
+        </h2>
+      </div>
+
+      <!-- 3 Official Franchise Models (Zero Financial Figures) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14" data-aos="fade-up">
+        <!-- Model A: Express Kiosk -->
+        <div class="premium-card overflow-hidden rounded-3xl bg-brand-surface border border-gray-200/80 shadow-soft flex flex-col justify-between">
+          <div class="p-7 pb-0">
+            <div class="flex items-center justify-between gap-3 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-brand-black text-brand-gold flex items-center justify-center text-xl shadow">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-brand-black text-brand-gold font-heading font-bold text-[10px] uppercase tracking-wider">Format A</span>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-brand-black">Express Kiosk</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Compact counter or modular kiosk for high-footfall grab-and-go zones.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-gray-700">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Colleges, markets, stations &amp; fuel plazas</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Compact footprint &amp; fast setup</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Menu, branding &amp; training included</li>
+            </ul>
+          </div>
+          <div class="p-7 pt-5">
+            <button type="button" onclick="selectedFranchiseFormat='Express Kiosk'; openFranchiseModal('Interested in Express Kiosk Format')" class="w-full py-3.5 rounded-2xl bg-brand-black hover:bg-brand-orange text-white font-heading font-bold text-xs uppercase tracking-wider transition-colors">
+              Apply for Express Kiosk →
+            </button>
+          </div>
+        </div>
+
+        <!-- Model B: Mini Outlet -->
+        <div class="premium-card overflow-hidden rounded-3xl bg-brand-black text-white border border-gray-800 shadow-xl flex flex-col justify-between relative">
+          <div class="p-7 pb-0">
+            <div class="flex items-center justify-between gap-2 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center text-xl shadow-glow">
+                <i class="fa-solid fa-shop"></i>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-brand-gold font-heading font-bold text-[10px] uppercase tracking-wider">Format B</span>
+                <span class="px-3 py-1 rounded-full bg-brand-gold text-brand-black font-heading font-extrabold text-[10px] uppercase tracking-wider">Most Popular</span>
+              </div>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-white">Mini Outlet</h3>
+            <p class="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed">
+              High-street retail shop or mall counter combining brisk takeaway with seating.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-gray-200">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-gold"></i> Main city markets &amp; commercial hubs</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-gold"></i> Takeaway, seating &amp; Zomato delivery</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-gold"></i> Signature black-and-gold fascia</li>
+            </ul>
+          </div>
+          <div class="p-7 pt-5">
+            <button type="button" onclick="selectedFranchiseFormat='Mini Outlet'; openFranchiseModal('Interested in Mini Outlet Format')" class="w-full btn-primary ripple-trigger py-3.5 rounded-2xl text-white font-heading font-bold text-xs uppercase tracking-wider shadow-glow">
+              Apply for Mini Outlet →
+            </button>
+          </div>
+        </div>
+
+        <!-- Model C: Signature Restaurant -->
+        <div class="premium-card overflow-hidden rounded-3xl bg-brand-surface border border-gray-200/80 shadow-soft flex flex-col justify-between">
+          <div class="p-7 pb-0">
+            <div class="flex items-center justify-between gap-3 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-brand-black text-brand-gold flex items-center justify-center text-xl shadow">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-brand-black text-brand-gold font-heading font-bold text-[10px] uppercase tracking-wider">Format C</span>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-brand-black">Signature Restaurant</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Full-scale 100% pure-veg burger café for family dine-in, takeaway, and delivery.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-gray-700">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Complete dine-in café &amp; open kitchen</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Dine-in, takeaway &amp; delivery engine</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Flagship presence in prime neighborhoods</li>
+            </ul>
+          </div>
+          <div class="p-7 pt-5">
+            <button type="button" onclick="selectedFranchiseFormat='Signature Restaurant'; openFranchiseModal('Interested in Signature Restaurant Format')" class="w-full py-3.5 rounded-2xl bg-brand-black hover:bg-brand-orange text-white font-heading font-bold text-xs uppercase tracking-wider transition-colors">
+              Apply for Signature Restaurant →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive Franchise Prospectus Showcase -->
+      <div id="executive-prospectus" class="mb-14 rounded-3xl bg-brand-obsidian text-white border border-gray-800 shadow-2xl overflow-hidden" data-aos="fade-up">
+        <!-- Prospectus Top Banner -->
+        <div class="p-8 sm:p-10 bg-gradient-to-r from-black via-brand-obsidian to-[#241806] border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <svg class="w-16 h-16 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="60" r="57" fill="#0B0B0B" stroke="#F4B400" stroke-width="4"/>
+              <path d="M34 50C34 36.7452 45.6406 26 60 26C74.3594 26 86 36.7452 86 50H34Z" fill="#F4B400"/>
+              <ellipse cx="47" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="55.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="64.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="73" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="42" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="51" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="60" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="69" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <ellipse cx="78" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+              <rect x="33" y="53.5" width="54" height="4.8" rx="2.4" fill="#F4B400"/>
+              <path d="M34 61.5H86V65C86 69.4183 82.4183 73 78 73H42C37.5817 73 34 69.4183 34 65V61.5Z" fill="#F4B400"/>
+              <path d="M50 61.5H70L66.5 67.5C65.7 68.8 64.3 69.5 62.8 69.5H57.2C55.7 69.5 54.3 68.8 53.5 67.5L50 61.5Z" fill="#0B0B0B"/>
+              <text x="60" y="88" text-anchor="middle" fill="#F4B400" font-family="Poppins, sans-serif" font-weight="800" font-size="11.2" letter-spacing="-0.2">Burger Calling</text>
+            </svg>
+            <div>
+              <span class="px-3 py-1 rounded-full bg-brand-gold/15 text-brand-gold font-heading font-bold text-[10px] uppercase tracking-widest">Official Brand Prospectus</span>
+              <h3 class="font-heading font-black text-2xl sm:text-3xl text-white mt-1.5">BURGER CALLING <span class="text-brand-gold">Franchise Dossier</span></h3>
+              <p class="text-xs sm:text-sm text-green-400 font-semibold mt-0.5">100% Pure Veg Cafe • Your Burger. Your Business. Your Brand.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" onclick="openProspectusModal()" class="px-5 py-3.5 rounded-2xl bg-brand-gold text-brand-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-white transition-colors inline-flex items-center gap-2 shadow-lg">
+              <i class="fa-solid fa-file-lines"></i>
+              <span>Open Full Prospectus</span>
+            </button>
+            <button type="button" onclick="openFranchiseModal('Applying after reviewing Franchise Prospectus')" class="btn-primary ripple-trigger px-6 py-3.5 rounded-2xl text-white font-heading font-bold text-xs uppercase tracking-wider shadow-glow">
+              Apply Now →
+            </button>
+          </div>
+        </div>
+
+        <!-- Prospectus Key Highlights Grid -->
+        <div class="p-8 sm:p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h4 class="font-heading font-bold text-base text-white">100% Pure-Veg Positioning</h4>
+            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+              Dedicated pure-vegetarian kitchen appeal that wins families, students, and everyday diners across Chhattisgarh.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-4">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <h4 class="font-heading font-bold text-base text-white">Turnkey Menu &amp; Training</h4>
+            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+              Complete recipe mastery, kitchen station layout, staff onboarding, and daily operational playbooks.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-brand-gold/20 text-brand-gold flex items-center justify-center mb-4">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h4 class="font-heading font-bold text-base text-white">Signature Store Identity</h4>
+            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+              Iconic black-and-gold illuminated signage, digital menu boards, and modular counter blueprints.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h4 class="font-heading font-bold text-base text-white">Multi-Channel Growth</h4>
+            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+              Built to capture high-street walk-ins, takeaway commuters, and online delivery demand seamlessly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Streamlined Franchise Onboarding Roadmap (Zero Numbers) -->
+      <div id="franchise-roadmap" class="p-8 sm:p-10 rounded-3xl bg-brand-surface border border-gray-200/80 shadow-soft mb-14" data-aos="fade-up">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">Onboarding Journey</span>
+          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-brand-black mt-1">From Inquiry to Grand Opening</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="roadmap-step p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center mb-3"><i class="fa-solid fa-paper-plane"></i></div>
+            <h4 class="font-heading font-bold text-sm text-brand-black">Submit Inquiry</h4>
+            <p class="text-xs text-gray-500 mt-1">Share your name, contact, and target city.</p>
+          </div>
+          <div class="roadmap-step p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center mb-3"><i class="fa-solid fa-comments"></i></div>
+            <h4 class="font-heading font-bold text-sm text-brand-black">Discovery Call</h4>
+            <p class="text-xs text-gray-500 mt-1">Review format options and site feasibility.</p>
+          </div>
+          <div class="roadmap-step p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center mb-3"><i class="fa-solid fa-store"></i></div>
+            <h4 class="font-heading font-bold text-sm text-brand-black">Chhattisgarh Outlet Visit</h4>
+            <p class="text-xs text-gray-500 mt-1">Tour our flagship kitchen and taste the menu.</p>
+          </div>
+          <div class="roadmap-step p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center mb-3"><i class="fa-solid fa-file-signature"></i></div>
+            <h4 class="font-heading font-bold text-sm text-brand-black">Agreement &amp; Setup</h4>
+            <p class="text-xs text-gray-500 mt-1">Complete branding, equipment, and staff training.</p>
+          </div>
+          <div class="roadmap-step p-5 rounded-2xl bg-brand-black text-white shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-brand-gold text-brand-black flex items-center justify-center mb-3"><i class="fa-solid fa-rocket"></i></div>
+            <h4 class="font-heading font-bold text-sm text-brand-gold">Grand Opening</h4>
+            <p class="text-xs text-gray-300 mt-1">Launch with local promotions and SOP support.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive High-Potential Franchise Locations Explorer (100% English, Zero Numbers) -->
+      <div id="franchise-locations-directory" class="p-6 sm:p-10 rounded-3xl bg-brand-surface border border-gray-200/80 shadow-soft" data-aos="fade-up">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div>
+            <span class="inline-block px-3.5 py-1 rounded-full bg-brand-orange/15 text-brand-orange font-heading font-bold text-[11px] uppercase tracking-widest mb-2">
+              Prime Zones
+            </span>
+            <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-brand-black">
+              Where You Can Open a <span class="text-brand-orange">Burger Calling</span> Outlet
+            </h3>
+          </div>
+
+          <!-- Instant English Location Search -->
+          <div class="relative w-full lg:w-80">
+            <i class="fa-solid fa-magnifying-glass text-gray-400 text-xs absolute left-4 top-1/2 -translate-y-1/2"></i>
+            <input
+              type="text"
+              id="location-search-input"
+              placeholder="Search Mall, Station, College, Highway..."
+              class="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-gray-200 text-xs sm:text-sm text-brand-black outline-none focus:border-brand-orange"
+            />
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <button type="button" data-loc-cat="all" class="loc-cat-btn active px-4 py-2 rounded-full font-heading font-bold text-xs bg-brand-black text-white transition-all">All Zones</button>
+          <button type="button" data-loc-cat="transport" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Transport &amp; Transit</button>
+          <button type="button" data-loc-cat="shopping" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Shopping &amp; Markets</button>
+          <button type="button" data-loc-cat="education" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Education &amp; Youth</button>
+          <button type="button" data-loc-cat="tourism" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Leisure &amp; Tourism</button>
+          <button type="button" data-loc-cat="business" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Business &amp; Offices</button>
+          <button type="button" data-loc-cat="residential" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Residential</button>
+          <button type="button" data-loc-cat="special" class="loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all">Turnkey Kiosk Formats</button>
+        </div>
+
+        <!-- Locations Grid (Populated via JS) -->
+        <div id="locations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- Important Franchise Disclaimer -->
+        <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+          <p class="text-[11px] text-gray-500 leading-relaxed max-w-3xl">
+            <strong>Note:</strong> Outlet approval depends on site feasibility, property permissions, and local licensing.
+          </p>
+          <button type="button" onclick="openFranchiseModal()" class="shrink-0 btn-primary ripple-trigger px-7 py-4 rounded-2xl text-white font-heading font-bold text-xs uppercase tracking-wider shadow-glow">
+            Submit Franchise Inquiry →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. BRAND GROWTH & QUALITY BANNER (ZERO NUMBERS)
+       ======================================================================== -->
+  <section id="growth" class="py-16 bg-gradient-to-r from-brand-orange to-brand-orangeDark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div class="growth-pillar p-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-3 text-2xl">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <div class="font-heading font-black text-xl sm:text-2xl">Chhattisgarh</div>
+          <p class="font-heading font-semibold text-xs sm:text-sm uppercase tracking-wider mt-1 text-orange-100">Active Expansion Network</p>
+        </div>
+
+        <div class="growth-pillar p-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-3 text-2xl">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <div class="font-heading font-black text-xl sm:text-2xl">Freshly Made</div>
+          <p class="font-heading font-semibold text-xs sm:text-sm uppercase tracking-wider mt-1 text-orange-100">Pure-Veg Quality Promise</p>
+        </div>
+
+        <div class="growth-pillar p-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-3 text-2xl">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <div class="font-heading font-black text-xl sm:text-2xl">Chef-Crafted</div>
+          <p class="font-heading font-semibold text-xs sm:text-sm uppercase tracking-wider mt-1 text-orange-100">Standardized SOPs</p>
+        </div>
+
+        <div class="growth-pillar p-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-3 text-2xl">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div class="font-heading font-black text-xl sm:text-2xl">Dedicated</div>
+          <p class="font-heading font-semibold text-xs sm:text-sm uppercase tracking-wider mt-1 text-orange-100">Franchise Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. GALLERY (RESPONSIVE MASONRY GRID + FULL-SCREEN INTERACTIVE LIGHTBOX)
+       ======================================================================== -->
+  <section id="gallery" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs uppercase tracking-widest mb-3">
+          Signature Creations
+        </span>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-black tracking-tight">
+          Inside <span class="text-brand-orange">Burger Calling</span>
+        </h2>
+      </div>
+
+      <!-- Masonry Photo Grid -->
+      <div class="masonry-grid mt-10" data-aos="fade-up">
+        <div class="masonry-item group relative rounded-3xl overflow-hidden shadow-soft cursor-pointer bg-gray-100" onclick="openLightbox(0)">
+          <img src="https://b.zmtcdn.com/data/dish_photos/60e/562ceec9bdcab8967d6808c3f6e1360e.jpeg" alt="Premium Veggie Cheese Double Patty Burger" loading="lazy" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div class="text-white">
+              <p class="font-heading font-bold text-base">Premium Veggie Cheese Double Patty Burger</p>
+              <span class="text-xs text-brand-gold"><i class="fa-solid fa-expand mr-1"></i> Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item group relative rounded-3xl overflow-hidden shadow-soft cursor-pointer bg-gray-100" onclick="openLightbox(1)">
+          <img src="https://b.zmtcdn.com/data/dish_photos/426/a128500eff5b1423fa74d1e85fbef426.jpeg" alt="Peri-Peri Cheesy Lava Burger" loading="lazy" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div class="text-white">
+              <p class="font-heading font-bold text-base">Peri-Peri Cheesy Lava Burger</p>
+              <span class="text-xs text-brand-gold"><i class="fa-solid fa-expand mr-1"></i> Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item group relative rounded-3xl overflow-hidden shadow-soft cursor-pointer bg-gray-100" onclick="openLightbox(2)">
+          <img src="https://b.zmtcdn.com/data/dish_photos/134/6213fd80d03cb1528011866dd926c134.png" alt="Calling Deluxe Paneer Veggie Patty Cheese Burger" loading="lazy" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div class="text-white">
+              <p class="font-heading font-bold text-base">Calling Deluxe Paneer Veggie Patty Cheese Burger</p>
+              <span class="text-xs text-brand-gold"><i class="fa-solid fa-expand mr-1"></i> Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item group relative rounded-3xl overflow-hidden shadow-soft cursor-pointer bg-gray-100" onclick="openLightbox(3)">
+          <img src="https://b.zmtcdn.com/data/dish_photos/31c/70c7fe9f406a93e8117b543cabd3931c.jpeg" alt="Peri-Peri Cheesy Lava French Fries" loading="lazy" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div class="text-white">
+              <p class="font-heading font-bold text-base">Peri-Peri Cheesy Lava French Fries</p>
+              <span class="text-xs text-brand-gold"><i class="fa-solid fa-expand mr-1"></i> Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item group relative rounded-3xl overflow-hidden shadow-soft cursor-pointer bg-gray-100" onclick="openLightbox(4)">
+          <img src="https://b.zmtcdn.com/data/dish_photos/fc4/2e24c4e693b32e15fcd7460cd5e57fc4.jpeg" alt="Calling Special Crispy Paneer Burger" loading="lazy" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div class="text-white">
+              <p class="font-heading font-bold text-base">Calling Special Crispy Paneer Burger</p>
+              <span class="text-xs text-brand-gold"><i class="fa-solid fa-expand mr-1"></i> Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry-item group relative rounded-3xl overflow-hidden shadow-soft cursor-pointer bg-gray-100" onclick="openLightbox(5)">
+          <img src="https://b.zmtcdn.com/data/dish_photos/c34/1a7e63f1601b67db0fa071d8aec20c34.jpeg" alt="2 Calling Veggie Special Cheese Burger + 2 Coke (250ml)" loading="lazy" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <div class="text-white">
+              <p class="font-heading font-bold text-base">2 Calling Veggie Special Cheese Burger + 2 Coke (250ml)</p>
+              <span class="text-xs text-brand-gold"><i class="fa-solid fa-expand mr-1"></i> Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. CUSTOMER & PARTNER REVIEWS (AUTO-SLIDING SWIPER.JS CAROUSEL)
+       ======================================================================== -->
+  <section id="reviews" class="py-20 lg:py-28 bg-brand-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs uppercase tracking-widest mb-3">
+          Social Proof
+        </span>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-black tracking-tight">
+          Loved by <span class="text-brand-orange">Diners &amp; Investors</span>
+        </h2>
+      </div>
+
+      <!-- Swiper Container -->
+      <div class="swiper testimonials-swiper mt-12 pb-14" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide h-auto">
+            <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-brand-gold text-sm mb-4">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 text-sm sm:text-base leading-relaxed italic">
+                  “Hands down the best pure-veg burger in Chhattisgarh! Ordered on Zomato—the bun is super soft, the double cheese patty is juicy, and it arrived piping hot.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-gray-100">
+                <div class="w-11 h-11 rounded-full bg-brand-orange text-white font-heading font-bold flex items-center justify-center">AT</div>
+                <div>
+                  <h4 class="font-heading font-bold text-sm text-brand-black">Ankit Tiwari</h4>
+                  <p class="text-xs text-gray-500">Verified Guest • Chhattisgarh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide h-auto">
+            <div class="p-8 rounded-3xl bg-brand-black text-white border border-gray-800 shadow-xl h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-1 text-brand-gold text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded-full bg-green-600/25 text-green-400 text-[10px] font-bold uppercase">100% Pure Veg</span>
+                </div>
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed italic">
+                  “The Calling Deluxe Paneer Veggie Patty Cheese Burger is an absolute game-changer in Chhattisgarh. Fresh crunch, rich cheese, and super fast service every single time.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-white/10">
+                <div class="w-11 h-11 rounded-full bg-brand-gold text-brand-black font-heading font-bold flex items-center justify-center">SK</div>
+                <div>
+                  <h4 class="font-heading font-bold text-sm text-white">Siddharth Kesharwani</h4>
+                  <p class="text-xs text-gray-400">Regular Diner • Chhattisgarh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide h-auto">
+            <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-brand-gold text-sm mb-4">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 text-sm sm:text-base leading-relaxed italic">
+                  “The Peri-Peri Cheesy Lava French Fries and Calling Special Crispy Paneer Burger in Chhattisgarh are unmatched. Clean packaging, zero sogginess, and bold flavor!”
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-gray-100">
+                <div class="w-11 h-11 rounded-full bg-brand-black text-white font-heading font-bold flex items-center justify-center">PS</div>
+                <div>
+                  <h4 class="font-heading font-bold text-sm text-brand-black">Priya Sharma</h4>
+                  <p class="text-xs text-gray-500">Food Blogger • Chhattisgarh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide h-auto">
+            <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-brand-gold text-sm mb-4">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 text-sm sm:text-base leading-relaxed italic">
+                  “Finally a 100% pure-veg Chhattisgarh burger brand that rivals global chains on speed and exceeds them on flavor! My family loves the Double Patty Burgers and Coke Combos.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-gray-100">
+                <div class="w-11 h-11 rounded-full bg-brand-orange text-white font-heading font-bold flex items-center justify-center">RM</div>
+                <div>
+                  <h4 class="font-heading font-bold text-sm text-brand-black">Rohan Malhotra</h4>
+                  <p class="text-xs text-gray-500">Verified Guest • Chhattisgarh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. CONTACT SECTION (DETAILS, ZOMATO, WHATSAPP & FLOATING-LABEL FORM)
+       ======================================================================== -->
+  <section id="contact" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs uppercase tracking-widest mb-3">
+          Get In Touch
+        </span>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-black tracking-tight">
+          Visit Our <span class="text-brand-orange">Chhattisgarh Flagship</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <!-- Left Info & Quick Actions -->
+        <div class="lg:col-span-6 flex flex-col justify-between gap-6" data-aos="fade-right">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-6 rounded-2xl bg-brand-surface border border-gray-100">
+              <i class="fa-solid fa-location-dot text-brand-orange text-xl mb-2.5"></i>
+              <h3 class="font-heading font-bold text-sm text-brand-black">Flagship Kitchen &amp; HQ</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">Chhattisgarh, India</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brand-surface border border-gray-100">
+              <i class="fa-solid fa-clock text-brand-orange text-xl mb-2.5"></i>
+              <h3 class="font-heading font-bold text-sm text-brand-black">Business Hours</h3>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">Mon – Sun: 11:00 AM – 11:30 PM<br/>Franchise Desk: 10 AM – 8 PM</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brand-surface border border-gray-100">
+              <i class="fa-solid fa-phone text-brand-orange text-xl mb-2.5"></i>
+              <h3 class="font-heading font-bold text-sm text-brand-black">Phone &amp; Franchise Desk</h3>
+              <p class="text-xs text-gray-600 mt-1">+91 83588 51237<br/>WhatsApp &amp; Direct Desk</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brand-surface border border-gray-100">
+              <i class="fa-brands fa-instagram text-brand-orange text-xl mb-2.5"></i>
+              <h3 class="font-heading font-bold text-sm text-brand-black">Official Instagram</h3>
+              <a href="https://www.instagram.com/burgercalling.india/" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-orange font-semibold hover:underline mt-1 inline-block">@burgercalling.india</a>
+            </div>
+          </div>
+
+          <!-- Dual Quick Action Strip: Zomato + WhatsApp -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-[#E23744]/10 border border-[#E23744]/30 flex items-center justify-between hover:bg-[#E23744]/15 transition-colors">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#E23744] text-white flex items-center justify-center text-lg shadow">
+                  <i class="fa-solid fa-motorcycle"></i>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-xs text-brand-black">Order on Zomato</p>
+                  <p class="text-[11px] text-gray-600">Chhattisgarh, India</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-[#E23744]"></i>
+            </a>
+
+            <a href="https://wa.me/918358851237?text=Hi%20Burger%20Calling%20Chhattisgarh!%20I%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-between hover:bg-[#25D366]/15 transition-colors">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center text-lg shadow">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-xs text-brand-black">WhatsApp Desk</p>
+                  <p class="text-[11px] text-gray-600">Menu &amp; Franchise Chat</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-right text-xs text-[#25D366]"></i>
+            </a>
+          </div>
+
+          <!-- Executive Prospectus Highlight Card -->
+          <div class="p-6 rounded-3xl bg-brand-black text-white border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-brand-gold">Chhattisgarh Expansion</span>
+              <h4 class="font-heading font-extrabold text-lg text-white mt-0.5">Explore the Official Prospectus</h4>
+              <p class="text-xs text-gray-400 mt-1">Review store formats, training support, and onboarding steps.</p>
+            </div>
+            <button type="button" onclick="openProspectusModal()" class="shrink-0 px-5 py-3 rounded-xl bg-brand-gold text-brand-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-white transition-colors">
+              View Prospectus
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Floating Label Contact Form -->
+        <div class="lg:col-span-6" data-aos="fade-left">
+          <form id="contact-form" class="p-8 sm:p-10 rounded-3xl bg-brand-surface border border-gray-200/80 shadow-soft h-full flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-extrabold text-2xl text-brand-black mb-6">Send Us a Message</h3>
+
+              <div class="space-y-4">
+                <div class="floating-group">
+                  <input type="text" id="contact-name" required placeholder=" " class="floating-input" />
+                  <label for="contact-name" class="floating-label">Full Name *</label>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="floating-group">
+                    <input type="email" id="contact-email" required placeholder=" " class="floating-input" />
+                    <label for="contact-email" class="floating-label">Email Address *</label>
+                  </div>
+                  <div class="floating-group">
+                    <input type="tel" id="contact-phone" required placeholder=" " class="floating-input" />
+                    <label for="contact-phone" class="floating-label">Phone Number (+91) *</label>
+                  </div>
+                </div>
+
+                <div class="floating-group">
+                  <select id="contact-topic" class="floating-input pt-5">
+                    <option value="Franchise Inquiry">Franchise Ownership Inquiry</option>
+                    <option value="Bulk / Corporate Order">Bulk / Corporate Event Order</option>
+                    <option value="Real Estate / Retail Space">Offer a Retail Space / Mall Kiosk</option>
+                    <option value="General Feedback">General Guest Feedback</option>
+                  </select>
+                  <label for="contact-topic" class="floating-label">Inquiry Type</label>
+                </div>
+
+                <div class="floating-group">
+                  <textarea id="contact-message" rows="4" required placeholder=" " class="floating-input"></textarea>
+                  <label for="contact-message" class="floating-label">Your Message or City Details *</label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" id="contact-submit-btn" class="btn-primary ripple-trigger w-full mt-6 py-4 rounded-2xl text-white font-heading font-bold text-sm uppercase tracking-wider shadow-glow flex items-center justify-center gap-2">
+              <span>Send via WhatsApp &amp; Email</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <!-- Contact Instant Backup Links (Shown after submission) -->
+            <div id="contact-success-bar" class="hidden mt-4 p-4 rounded-2xl bg-green-50 border border-green-200 text-xs text-gray-700">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <span class="font-heading font-bold text-green-800 flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-check text-green-600"></i> Dispatched to WhatsApp &amp; Email!
+                </span>
+                <span class="text-[11px] text-green-700 font-semibold">Desk Notified</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <a id="contact-wa-fallback" href="#" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-[#25D366] text-white font-heading font-bold text-[11px] uppercase tracking-wider inline-flex items-center gap-1.5 hover:opacity-95">
+                  <i class="fa-brands fa-whatsapp"></i> Re-open WhatsApp
+                </a>
+                <a id="contact-mailto-fallback" href="#" class="px-3.5 py-2 rounded-xl bg-brand-black text-white font-heading font-bold text-[11px] uppercase tracking-wider inline-flex items-center gap-1.5 hover:bg-brand-orange">
+                  <i class="fa-solid fa-envelope"></i> Send via Email App
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EXECUTIVE PROSPECTUS MODAL (PRINTABLE & INTERACTIVE)
+       ======================================================================== -->
+  <div id="prospectus-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative max-h-[92vh] overflow-y-auto border border-gray-200">
+      <!-- Dark Luxury Header -->
+      <div class="bg-brand-obsidian text-white p-6 sm:p-8 flex items-center justify-between gap-4 sticky top-0 z-10 border-b border-white/10">
+        <div class="flex items-center gap-3.5">
+          <svg class="w-12 h-12 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="57" fill="#0B0B0B" stroke="#F4B400" stroke-width="4"/>
+            <path d="M34 50C34 36.7452 45.6406 26 60 26C74.3594 26 86 36.7452 86 50H34Z" fill="#F4B400"/>
+            <ellipse cx="47" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="55.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="64.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="73" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="42" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="51" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="60" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="69" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="78" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <rect x="33" y="53.5" width="54" height="4.8" rx="2.4" fill="#F4B400"/>
+            <path d="M34 61.5H86V65C86 69.4183 82.4183 73 78 73H42C37.5817 73 34 69.4183 34 65V61.5Z" fill="#F4B400"/>
+            <path d="M50 61.5H70L66.5 67.5C65.7 68.8 64.3 69.5 62.8 69.5H57.2C55.7 69.5 54.3 68.8 53.5 67.5L50 61.5Z" fill="#0B0B0B"/>
+            <text x="60" y="88" text-anchor="middle" fill="#F4B400" font-family="Poppins, sans-serif" font-weight="800" font-size="11.2" letter-spacing="-0.2">Burger Calling</text>
+          </svg>
+          <div>
+            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-brand-gold">Official Franchise Prospectus</span>
+            <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-white">BURGER CALLING • Chhattisgarh</h3>
+          </div>
+        </div>
+        <button type="button" onclick="closeProspectusModal()" aria-label="Close Prospectus" class="w-10 h-10 rounded-xl bg-white/10 text-white hover:bg-brand-orange transition-colors flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Prospectus Body -->
+      <div class="p-6 sm:p-8 space-y-6 text-gray-700 text-sm">
+        <div class="p-5 rounded-2xl bg-brand-surface border border-gray-200">
+          <h4 class="font-heading font-extrabold text-base text-brand-black">1. Brand Vision &amp; Origin</h4>
+          <p class="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+            <strong>Burger Calling</strong> is a modern 100% pure-vegetarian quick-service burger brand operating across <strong>Chhattisgarh, India</strong>. Built around bold recipes, crisp hygiene standards, and youthful café aesthetics, we invite entrepreneurs to launch their own Burger Calling outlet across Chhattisgarh.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-base text-brand-black mb-3">2. Available Franchise Models</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div class="p-4 rounded-2xl bg-brand-surface border border-gray-200">
+              <span class="text-[10px] font-heading font-bold uppercase text-brand-orange">Format A</span>
+              <h5 class="font-heading font-bold text-sm text-brand-black mt-0.5">Express Kiosk</h5>
+              <p class="text-xs text-gray-600 mt-1">Compact counter or stall for colleges, busy markets, stations, and fuel plazas.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-brand-surface border border-gray-200">
+              <span class="text-[10px] font-heading font-bold uppercase text-brand-orange">Format B</span>
+              <h5 class="font-heading font-bold text-sm text-brand-black mt-0.5">Mini Outlet</h5>
+              <p class="text-xs text-gray-600 mt-1">High-street retail shop with brisk takeaway, limited seating, and online delivery.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-brand-surface border border-gray-200">
+              <span class="text-[10px] font-heading font-bold uppercase text-brand-orange">Format C</span>
+              <h5 class="font-heading font-bold text-sm text-brand-black mt-0.5">Signature Restaurant</h5>
+              <p class="text-xs text-gray-600 mt-1">Full-scale 100% pure-veg burger café offering family dine-in, takeaway, and delivery.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-2xl bg-brand-surface border border-gray-200">
+            <h4 class="font-heading font-extrabold text-sm text-brand-black mb-2">3. Partner Support Ecosystem</h4>
+            <ul class="space-y-1.5 text-xs text-gray-600">
+              <li>• Established brand identity &amp; signage guidelines</li>
+              <li>• Ready-to-execute pure-veg menu &amp; house recipes</li>
+              <li>• Kitchen layout planning &amp; equipment guidance</li>
+              <li>• Hands-on staff training &amp; operating SOPs</li>
+              <li>• Launch marketing &amp; promotional support</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-2xl bg-brand-surface border border-gray-200">
+            <h4 class="font-heading font-extrabold text-sm text-brand-black mb-2">4. Priority Expansion Cities</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Raipur • Durg-Bhilai • Korba • Raigarh • Janjgir-Champa &amp; high-potential towns across Chhattisgarh.
+            </p>
+            <div class="mt-3 pt-3 border-t border-gray-200 text-xs text-brand-black font-semibold">
+              Direct Desk: +91 83588 51237
+            </div>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-gray-500 leading-relaxed">
+          <strong>Disclaimer:</strong> This prospectus is for preliminary invitation and informational purposes only. Commercial terms, site specifications, and territorial rights are finalized in the formal franchise agreement.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-end gap-3 pt-2 border-t border-gray-100">
+          <button type="button" onclick="downloadFranchiseBrochure()" class="px-5 py-3 rounded-xl bg-brand-surface border border-gray-200 text-brand-black font-heading font-bold text-xs uppercase tracking-wider hover:border-brand-orange transition-colors inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-file-pdf text-brand-orange"></i> Download PDF Prospectus
+          </button>
+          <button type="button" onclick="closeProspectusModal(); openFranchiseModal('Applying from Official Prospectus')" class="btn-primary px-6 py-3 rounded-xl text-white font-heading font-bold text-xs uppercase tracking-wider shadow-glow">
+            Apply for Franchise →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FRANCHISE APPLICATION MODAL (WHATSAPP + EMAIL DUAL DISPATCH)
+       ======================================================================== -->
+  <div id="franchise-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto border border-gray-200">
+      <button type="button" onclick="closeFranchiseModal()" aria-label="Close Franchise Modal" class="absolute top-5 right-5 w-10 h-10 rounded-xl bg-gray-100 text-brand-black hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="franchise-form-view">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand-orange/15 text-brand-orange font-heading font-bold text-[11px] uppercase tracking-widest mb-2">
+          Franchise Application
+        </span>
+        <h3 class="font-heading font-extrabold text-2xl text-brand-black">Partner With <span class="text-brand-orange">Burger Calling</span></h3>
+        <p class="text-xs text-gray-500 mt-1">Your details will be sent directly to our WhatsApp &amp; Email franchise desk.</p>
+
+        <form id="franchise-application-form" class="space-y-3.5 mt-5">
+          <div class="floating-group">
+            <input type="text" id="f-name" required placeholder=" " class="floating-input" />
+            <label for="f-name" class="floating-label">Full Name *</label>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div class="floating-group">
+              <input type="tel" id="f-phone" required placeholder=" " class="floating-input" />
+              <label for="f-phone" class="floating-label">Phone / WhatsApp *</label>
+            </div>
+            <div class="floating-group">
+              <input type="email" id="f-email" placeholder=" " class="floating-input" />
+              <label for="f-email" class="floating-label">Email Address</label>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div class="floating-group">
+              <input type="text" id="f-city" required placeholder=" " class="floating-input" />
+              <label for="f-city" class="floating-label">Target City &amp; State *</label>
+            </div>
+            <div class="floating-group">
+              <select id="f-format" class="floating-input pt-5">
+                <option value="Express Kiosk">Express Kiosk</option>
+                <option value="Mini Outlet">Mini Outlet</option>
+                <option value="Signature Restaurant">Signature Restaurant</option>
+              </select>
+              <label for="f-format" class="floating-label">Preferred Format</label>
+            </div>
+          </div>
+          <div class="floating-group">
+            <textarea id="f-notes" rows="3" placeholder=" " class="floating-input"></textarea>
+            <label for="f-notes" class="floating-label">Preferred Location / Property Details</label>
+          </div>
+
+          <button type="submit" id="franchise-submit-btn" class="btn-primary ripple-trigger w-full py-4 rounded-2xl text-white font-heading font-bold text-xs uppercase tracking-wider shadow-glow flex items-center justify-center gap-2 mt-2">
+            <span>Submit Franchise Inquiry</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Confirmation State -->
+      <div id="franchiseSuccess" class="hidden text-center py-4">
+        <div class="w-16 h-16 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center text-3xl mx-auto mb-4">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 class="font-heading font-extrabold text-2xl text-brand-black">Application Received!</h3>
+        <p class="text-xs sm:text-sm text-gray-600 mt-2">
+          Thank you, <strong id="success-applicant-name" class="text-brand-black">Partner</strong>! Your franchise inquiry for <strong id="success-applicant-city" class="text-brand-orange">your city</strong> has been dispatched.
+        </p>
+        <div id="franchise-summary-box" class="mt-4 p-4 rounded-2xl bg-brand-surface border border-gray-200 text-left text-xs text-gray-700 space-y-1"></div>
+        <div class="flex flex-wrap items-center justify-center gap-2.5 mt-5">
+          <a id="reopen-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-[#25D366] text-white font-heading font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1.5">
+            <i class="fa-brands fa-whatsapp"></i> Open WhatsApp
+          </a>
+          <a id="fallback-mailto-btn" href="#" class="px-4 py-2.5 rounded-xl bg-brand-black text-white font-heading font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-envelope"></i> Email Backup
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       GALLERY LIGHTBOX MODAL
+       ======================================================================== -->
+  <div id="lightbox-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <button type="button" onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-2xl bg-white/10 text-white hover:bg-brand-orange transition-colors flex items-center justify-center">
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+    <button type="button" onclick="navigateLightbox(-1)" aria-label="Previous Image" class="absolute left-4 sm:left-8 w-11 h-11 rounded-2xl bg-white/10 text-white hover:bg-brand-orange transition-colors flex items-center justify-center">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div class="max-w-4xl w-full text-center">
+      <img id="lightbox-img" src="" alt="Gallery Preview" class="max-h-[75vh] mx-auto rounded-3xl shadow-2xl object-contain" />
+      <p id="lightbox-caption" class="text-white font-heading font-semibold text-sm sm:text-base mt-4"></p>
+    </div>
+    <button type="button" onclick="navigateLightbox(1)" aria-label="Next Image" class="absolute right-4 sm:right-8 w-11 h-11 rounded-2xl bg-white/10 text-white hover:bg-brand-orange transition-colors flex items-center justify-center">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER & FLOATING ACTION BUTTONS
+       ======================================================================== -->
+  <footer class="bg-brand-obsidian text-white pt-16 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/10">
+        <div class="flex items-center gap-3.5">
+          <svg class="w-12 h-12 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="57" fill="#0B0B0B" stroke="#F4B400" stroke-width="4"/>
+            <path d="M34 50C34 36.7452 45.6406 26 60 26C74.3594 26 86 36.7452 86 50H34Z" fill="#F4B400"/>
+            <ellipse cx="47" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="55.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="64.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="73" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="42" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="51" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="60" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="69" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <ellipse cx="78" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF"/>
+            <rect x="33" y="53.5" width="54" height="4.8" rx="2.4" fill="#F4B400"/>
+            <path d="M34 61.5H86V65C86 69.4183 82.4183 73 78 73H42C37.5817 73 34 69.4183 34 65V61.5Z" fill="#F4B400"/>
+            <path d="M50 61.5H70L66.5 67.5C65.7 68.8 64.3 69.5 62.8 69.5H57.2C55.7 69.5 54.3 68.8 53.5 67.5L50 61.5Z" fill="#0B0B0B"/>
+            <text x="60" y="88" text-anchor="middle" fill="#F4B400" font-family="Poppins, sans-serif" font-weight="800" font-size="11.2" letter-spacing="-0.2">Burger Calling</text>
+          </svg>
+          <div>
+            <span class="font-heading font-extrabold text-xl tracking-tight text-white block">BURGER <span class="text-brand-gold">CALLING</span></span>
+            <span class="text-xs text-green-400 font-semibold">100% Pure Veg Cafe • Chhattisgarh, India</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-xs font-heading font-bold uppercase tracking-wider text-gray-400">
+          <a href="#home" class="hover:text-brand-gold transition-colors">Home</a>
+          <a href="#menu" class="hover:text-brand-gold transition-colors">Menu</a>
+          <a href="#franchise" class="hover:text-brand-gold transition-colors">Franchise</a>
+          <button type="button" onclick="openProspectusModal()" class="hover:text-brand-gold transition-colors uppercase">Prospectus</button>
+          <a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a>
+          <a href="https://www.instagram.com/burgercalling.india/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-white/10 text-white hover:bg-brand-orange transition-colors flex items-center justify-center text-base">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2026 BURGER CALLING • Chhattisgarh, India. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white transition-colors">Privacy Policy</button>
+          <button type="button" onclick="openLegalModal('terms')" class="hover:text-white transition-colors">Terms &amp; Disclaimer</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick Actions -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col items-center gap-3">
+    <button id="back-to-top" type="button" aria-label="Back to Top" class="w-11 h-11 rounded-2xl bg-brand-black text-white border border-white/15 shadow-xl hover:bg-brand-orange transition-all opacity-0 pointer-events-none translate-y-3 flex items-center justify-center">
+      <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
+    <a href="https://www.instagram.com/burgercalling.india/" target="_blank" rel="noopener noreferrer" aria-label="Burger Calling Instagram" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xl hover:scale-105 transition-transform flex items-center justify-center">
+      <i class="fa-brands fa-instagram text-xl"></i>
+    </a>
+    <a href="tel:+918358851237" aria-label="Call Burger Calling" class="w-12 h-12 rounded-2xl bg-brand-orange text-white shadow-glow hover:scale-105 transition-transform flex items-center justify-center">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/918358851237?text=Hi%20Burger%20Calling%20Chhattisgarh!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Burger Calling" class="w-13 h-13 p-3.5 rounded-2xl bg-[#25D366] text-white shadow-xl hover:scale-105 transition-transform flex items-center justify-center">
+      <i class="fa-brands fa-whatsapp text-xl"></i>
+    </a>
+  </div>
+
+  <!-- ========================================================================
+       LEGAL & TERMS MODAL
+       ======================================================================== -->
+  <div id="legal-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-200">
+      <button type="button" onclick="closeLegalModal()" aria-label="Close Legal Modal" class="absolute top-5 right-5 w-10 h-10 rounded-xl bg-gray-100 text-brand-black hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 id="legal-title" class="font-heading font-extrabold text-xl text-brand-black">Terms &amp; Disclaimer</h3>
+      <p id="legal-body" class="text-xs sm:text-sm text-gray-600 mt-3 leading-relaxed"></p>
+      <button type="button" onclick="closeLegalModal()" class="mt-6 w-full py-3 rounded-2xl bg-brand-black text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-brand-orange transition-colors">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       TOAST NOTIFICATION CONTAINER (NO ALERT() USED ANYWHERE)
+       ======================================================================== -->
+  <div id="toast-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none w-[90vw] max-w-md"></div>
+
+  <!-- ========================================================================
+       SCRIPTS: GSAP, SCROLLTRIGGER, AOS, SWIPER.JS & APPLICATION LOGIC
+       ======================================================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    /* ==========================================================================
+       0. BRAND CONFIGURATION & PRELOADER DISMISSAL (RUNS IMMEDIATELY)
+       ========================================================================== */
+    const BRAND_CONFIG = {
+      brandName: 'BURGER CALLING',
+      whatsappNumber: '918358851237',
+      displayPhone: '+91 83588 51237',
+      recipientEmail: 'burgercalling001@gmail.com',
+      instagramUrl: 'https://www.instagram.com/burgercalling.india/',
+      web3formsAccessKey: ''
+    };
+    let selectedFranchiseFormat = 'Express Kiosk';
+
+    function dismissPreloader() {
+      const loader = document.getElementById('page-loader');
+      if (!loader || loader.dataset.dismissed === 'true') return;
+      loader.dataset.dismissed = 'true';
+      loader.classList.add('loaded');
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(dismissPreloader, 450));
+    } else {
+      setTimeout(dismissPreloader, 450);
+    }
+    window.addEventListener('load', () => setTimeout(dismissPreloader, 250));
+    setTimeout(dismissPreloader, 900);
+
+    /* ==========================================================================
+       1. DYNAMIC TYPING TAGLINE EFFECT
+       ========================================================================== */
+    const taglines = [
+      'Your Burger. Your Business. Your Brand.',
+      'Own Your Business. Own Your Brand.',
+      'Chhattisgarh’s Rising Pure-Veg QSR Brand',
+      'Standardized Taste • Turnkey QSR Formats'
+    ];
+    let taglineIdx = 0;
+    let charIdx = taglines[0].length;
+    let isDeleting = true;
+
+    function runTypingEffect() {
+      const target = document.getElementById('typing-tagline');
+      if (!target) return;
+      const currentPhrase = taglines[taglineIdx];
+
+      if (isDeleting) {
+        charIdx--;
+        target.textContent = currentPhrase.substring(0, charIdx);
+        if (charIdx === 0) {
+          isDeleting = false;
+          taglineIdx = (taglineIdx + 1) % taglines.length;
+          setTimeout(runTypingEffect, 400);
+          return;
+        }
+        setTimeout(runTypingEffect, 35);
+      } else {
+        charIdx++;
+        target.textContent = currentPhrase.substring(0, charIdx);
+        if (charIdx === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(runTypingEffect, 2200);
+          return;
+        }
+        setTimeout(runTypingEffect, 60);
+      }
+    }
+    setTimeout(runTypingEffect, 2000);
+
+    /* ==========================================================================
+       2. NAVBAR SCROLL, PROGRESS BAR, BACK TO TOP & ACTIVE SECTION HIGHLIGHT
+       ========================================================================== */
+    const navbar = document.getElementById('navbar');
+    const scrollProgress = document.getElementById('scroll-progress');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollProgress && docHeight > 0) {
+        scrollProgress.style.width = `${Math.min(100, (scrollY / docHeight) * 100)}%`;
+      }
+      if (navbar) {
+        navbar.classList.toggle('scrolled', scrollY > 30);
+      }
+      if (backToTopBtn) {
+        if (scrollY > 450) {
+          backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        } else {
+          backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+        }
+      }
+      let currentSection = '';
+      sections.forEach((sec) => {
+        if (scrollY >= sec.offsetTop - 160) {
+          currentSection = sec.getAttribute('id');
+        }
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
+      });
+    }, { passive: true });
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* ==========================================================================
+       3. MOBILE MENU SLIDE DRAWER
+       ========================================================================== */
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMobileDrawerBtn = document.getElementById('close-mobile-drawer');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileOverlay = document.getElementById('mobile-drawer-overlay');
+
+    function openMobileMenu() {
+      if (!mobileDrawer || !mobileOverlay) return;
+      mobileOverlay.classList.remove('hidden');
+      requestAnimationFrame(() => mobileOverlay.classList.remove('opacity-0'));
+      mobileDrawer.classList.remove('translate-x-full');
+    }
+
+    function closeMobileMenu() {
+      if (!mobileDrawer || !mobileOverlay) return;
+      mobileOverlay.classList.add('opacity-0');
+      mobileDrawer.classList.add('translate-x-full');
+      setTimeout(() => mobileOverlay.classList.add('hidden'), 300);
+    }
+
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+    if (closeMobileDrawerBtn) closeMobileDrawerBtn.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    /* ==========================================================================
+       4. EXACT MENU DATA RENDERING & CATEGORY FILTERING (ALL 35 UPLOADED ITEMS)
+       ========================================================================== */
+    const BURGER_CALLING_MENU = [
+      { name: 'Peri-Peri veggie calling burger', img: 'https://b.zmtcdn.com/data/dish_photos/935/4ddb5d2f63afad8a02bf117de370f935.jpeg', cat: 'peri-peri', badge: 'Peri-Peri' },
+      { name: 'Peri-Peri Aloo Tikki Burger', img: 'https://b.zmtcdn.com/data/dish_photos/1a2/88a2e908699b6731d1bbb204341501a2.jpeg', cat: 'peri-peri', badge: 'Peri-Peri' },
+      { name: 'Peri-Peri Cheesy Lava Burger', img: 'https://b.zmtcdn.com/data/dish_photos/426/a128500eff5b1423fa74d1e85fbef426.jpeg', cat: 'peri-peri', badge: 'Peri-Peri' },
+      { name: 'Peri-Peri Cheese Blast Burger', img: 'https://b.zmtcdn.com/data/dish_photos/752/f83fec509eb3e65886451b138a47b752.jpeg', cat: 'peri-peri', badge: 'Peri-Peri' },
+      { name: 'Veg Peri-Peri Hotline Double Patty Burger', img: 'https://b.zmtcdn.com/data/dish_photos/7e2/9314b82b329dd620771fc3b4cad5c7e2.jpg', cat: 'double-patty', badge: 'Double Patty' },
+      { name: 'Peri-Peri Cheesy Lava French Fries', img: 'https://b.zmtcdn.com/data/dish_photos/31c/70c7fe9f406a93e8117b543cabd3931c.jpeg', cat: 'fries', badge: 'Fries' },
+      { name: 'Peri Peri French Fries', img: 'https://b.zmtcdn.com/data/dish_photos/511/9bb6dadb50414da9f09267c78aa8e511.jpeg', cat: 'fries', badge: 'Fries' },
+      { name: 'Aloo Tikki Burger', img: 'https://b.zmtcdn.com/data/dish_photos/da1/1a474fcfb57784ebac82a7fdc3590da1.jpg', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Veggie Tikki Burger', img: 'https://b.zmtcdn.com/data/dish_photos/1d4/c11b8635e860f075a307450d4826d1d4.jpeg', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Aloo Tik-Tok Tikki Veggie Burger', img: 'https://b.zmtcdn.com/data/dish_photos/5cf/1c8c8e52e385fa940dbec60ecb4aa5cf.jpeg', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Veggie Burger', img: 'https://b.zmtcdn.com/data/dish_photos/040/3d5c45721a1f9ea1b566b0a61e879040.png', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Spicy Aloo Tikki Veggie Burger', img: 'https://b.zmtcdn.com/data/dish_photos/ff3/065f795ee8c6d9ebcc4ee73b17fc8ff3.jpeg', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Aloo Tikki Veggie Cheese Burger', img: 'https://b.zmtcdn.com/data/dish_photos/16c/b1a79ba3b68f5827d95f4db27f67916c.jpg', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Spicy Veggie Burger', img: 'https://b.zmtcdn.com/data/dish_photos/da9/91cbdf29f53ed27c55a03c12ad0d1da9.png', cat: 'classic-burgers', badge: 'Classic' },
+      { name: 'Aloo Tikki Burger + Aloo Tikki Burger', img: 'https://b.zmtcdn.com/data/dish_photos/8d1/77a3527e68caff89db51c0eb424248d1.png', cat: 'combos', badge: 'Combo' },
+      { name: 'Veggie Burger + Veggie Burger', img: 'https://b.zmtcdn.com/data/dish_photos/59f/db9683fb7c4805616bd2eac214db859f.jpeg', cat: 'combos', badge: 'Combo' },
+      { name: 'Calling Veg Cheese Burger + Calling Veg Cheese Burger', img: 'https://b.zmtcdn.com/data/dish_photos/5b0/5715ca43a4e8bcecd90acf2da9c555b0.jpeg', cat: 'combos', badge: 'Combo' },
+      { name: '2 Aloo Tikki Burger + 2 Coke (250ml)', img: 'https://b.zmtcdn.com/data/dish_photos/d0e/60d09336db9367f8b26a7f4c380dbd0e.jpeg', cat: 'combos', badge: 'Combo' },
+      { name: '2 Calling Veggie Special Cheese Burger + 2 Coke (250ml)', img: 'https://b.zmtcdn.com/data/dish_photos/c34/1a7e63f1601b67db0fa071d8aec20c34.jpeg', cat: 'combos', badge: 'Combo' },
+      { name: '1 Calling Veggie Special Cheese Burger + 1 Coke (250ml)', img: 'https://b.zmtcdn.com/data/dish_photos/358/3e82c4f8477b497a94204bf17c6c3358.jpg', cat: 'combos', badge: 'Combo' },
+      { name: '1 Veggie Burger + 1 Coke (250ml)', img: 'https://b.zmtcdn.com/data/dish_photos/c82/83d15a3987ae41552a19fda8bc589c82.jpeg', cat: 'combos', badge: 'Combo' },
+      { name: '1 Aloo Tikki Burger + 1 coke (250ml)', img: 'https://b.zmtcdn.com/data/dish_photos/599/cccfce238cbd2e779bfea2a042d39599.png', cat: 'combos', badge: 'Combo' },
+      { name: 'Premium Aloo Tikki Double Patty Burger', img: 'https://b.zmtcdn.com/data/dish_photos/c65/ed424d988cb03c148c7e3efeb6539c65.jpeg', cat: 'double-patty', badge: 'Double Patty' },
+      { name: 'Premium Veggie Tikki Double Patty Burger', img: 'https://b.zmtcdn.com/data/dish_photos/1e1/9f74bf27416a64906cab92b3cc3ce1e1.jpeg', cat: 'double-patty', badge: 'Double Patty' },
+      { name: 'Premium Veggie Cheese Double Patty Burger', img: 'https://b.zmtcdn.com/data/dish_photos/60e/562ceec9bdcab8967d6808c3f6e1360e.jpeg', cat: 'double-patty', badge: 'Double Patty' },
+      { name: 'Premium Veggie Indian Double Patty Burger', img: 'https://b.zmtcdn.com/data/dish_photos/0b2/d9e86d312921ffd047f8077bc04990b2.jpeg', cat: 'double-patty', badge: 'Double Patty' },
+      { name: 'Calling Veggie Premium Cheese Burger', img: 'https://b.zmtcdn.com/data/dish_photos/17a/fa65a3f7e04f03533eac3d825c2b117a.png', cat: 'special-paneer', badge: 'Signature' },
+      { name: 'Calling Veggie Special Cheese Burger', img: 'https://b.zmtcdn.com/data/dish_photos/e7f/aad8218cc8f07bc59edd5a0d6bbd7e7f.jpeg', cat: 'special-paneer', badge: 'Signature' },
+      { name: 'Calling Veggie Special Indian Cheese Burger', img: 'https://b.zmtcdn.com/data/dish_photos/ba5/69f15a5da60e7292a41fab8ebcad5ba5.jpeg', cat: 'special-paneer', badge: 'Signature' },
+      { name: 'Calling Spicy Paneer Indian Burger', img: 'https://b.zmtcdn.com/data/dish_photos/615/a967943544c9ae5ab4c799f5d9691615.jpeg', cat: 'special-paneer', badge: 'Paneer' },
+      { name: 'Calling Special Crispy Paneer Burger', img: 'https://b.zmtcdn.com/data/dish_photos/fc4/2e24c4e693b32e15fcd7460cd5e57fc4.jpeg', cat: 'special-paneer', badge: 'Paneer' },
+      { name: 'Calling Deluxe Paneer Veggie Patty Cheese Burger', img: 'https://b.zmtcdn.com/data/dish_photos/134/6213fd80d03cb1528011866dd926c134.png', cat: 'special-paneer', badge: 'Paneer' },
+      { name: 'Fries Salted (Medium)', img: 'https://b.zmtcdn.com/data/dish_photos/3f0/6bf7a044481715ac6e6e9de3dc1333f0.jpg', cat: 'fries', badge: 'Fries' },
+      { name: 'Fries (Medium) with Peri Peri Mix', img: 'https://b.zmtcdn.com/data/dish_photos/3fb/779ab60ff5fc322e163f0448226653fb.jpeg', cat: 'fries', badge: 'Fries' },
+      { name: 'Classic Cheese Fries (Medium)', img: 'https://b.zmtcdn.com/data/dish_photos/830/2ede1a1629c4aaa95e100e184bdae830.jpeg', cat: 'fries', badge: 'Fries' }
+    ];
+
+    function renderMenuCards(filter = 'all') {
+      const menuGrid = document.getElementById('menu-grid');
+      if (!menuGrid) return;
+
+      const filtered = filter === 'all'
+        ? BURGER_CALLING_MENU
+        : BURGER_CALLING_MENU.filter((item) => item.cat === filter);
+
+      menuGrid.innerHTML = filtered.map((item) => `
+        <article class="menu-item-card premium-card specular-sheen bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-soft flex flex-col" data-category="${item.cat}">
+          <div class="relative h-56 overflow-hidden bg-gray-100">
+            <img
+              src="${item.img}"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80';"
+              alt="${item.name}"
+              loading="lazy"
+              class="card-img w-full h-full object-cover"
+            />
+            <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-green-600 text-white text-[11px] font-bold uppercase tracking-wider shadow">
+              100% Veg • ${item.badge}
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <h3 class="font-heading font-bold text-base sm:text-lg text-brand-black leading-snug">${item.name}</h3>
+            <a href="https://www.zomato.com/bilaspur/burger-calling-sarkanda/order" target="_blank" rel="noopener noreferrer" class="mt-5 w-full py-3 rounded-2xl bg-brand-surface border border-gray-200 text-brand-black hover:bg-brand-orange hover:text-white hover:border-brand-orange font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+              <span>View on Zomato</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+            </a>
+          </div>
+        </article>
+      `).join('');
+
+      // Animate newly rendered menu cards with GSAP wave stagger
+      try {
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo('.menu-item-card',
+            { y: 28, opacity: 0, scale: 0.96 },
+            { y: 0, opacity: 1, scale: 1, duration: 0.5, stagger: { amount: 0.45, from: 'start' }, ease: 'power3.out', clearProps: 'transform,opacity' }
+          );
+        }
+      } catch (e) {}
+    }
+
+    renderMenuCards('all');
+
+    const filterBtns = document.querySelectorAll('.menu-filter-btn');
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove('active', 'bg-brand-black', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+        });
+        btn.classList.add('active', 'bg-brand-black', 'text-white');
+        btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+
+        const filter = btn.getAttribute('data-filter');
+        renderMenuCards(filter);
+      });
+    });
+
+    /* ==========================================================================
+       5. RESILIENT GSAP, AOS & SWIPER.JS INITIALIZATION
+       ========================================================================== */
+    try {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 700,
+          once: true,
+          offset: 60
+        });
+      }
+    } catch (e) {
+      console.warn('AOS init skipped:', e);
+    }
+
+    try {
+      if (typeof Swiper !== 'undefined') {
+        window.heroShowcaseSwiper = new Swiper('.hero-showcase-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          loop: true,
+          speed: 750,
+          autoplay: {
+            delay: 3200,
+            disableOnInteraction: false
+          },
+          pagination: {
+            el: '.hero-showcase-swiper .swiper-pagination',
+            clickable: true
+          }
+        });
+
+        new Swiper('.testimonials-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          autoplay: {
+            delay: 4200,
+            disableOnInteraction: false
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('Swiper init skipped:', e);
+    }
+
+    try {
+      if (typeof gsap !== 'undefined') {
+        if (typeof ScrollTrigger !== 'undefined') {
+          gsap.registerPlugin(ScrollTrigger);
+        }
+
+        // Hero Stagger & Slide-in
+        gsap.from('.hero-stagger', {
+          y: 28,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+          clearProps: 'all'
+        });
+        gsap.from('.hero-cta-group > a', {
+          scale: 0.88,
+          y: 18,
+          opacity: 0,
+          duration: 0.65,
+          stagger: 0.1,
+          delay: 0.25,
+          ease: 'back.out(1.7)',
+          clearProps: 'all'
+        });
+        gsap.from('#hero-burger-wrapper', {
+          x: 60,
+          opacity: 0,
+          duration: 0.95,
+          ease: 'power3.out',
+          clearProps: 'all'
+        });
+
+        // Continuous Floating Ingredients & Glass Badges
+        gsap.to('.floating-ingredient', {
+          y: -14,
+          rotation: 8,
+          duration: 2.4,
+          repeat: -1,
+          yoyo: true,
+          stagger: 0.35,
+          ease: 'sine.inOut'
+        });
+        gsap.to('.hero-float-badge', {
+          y: -8,
+          duration: 2.8,
+          repeat: -1,
+          yoyo: true,
+          stagger: 0.5,
+          ease: 'sine.inOut'
+        });
+
+        // Scroll-Triggered Staggers for Why Choose Us, Roadmap & Growth Pillars
+        if (typeof ScrollTrigger !== 'undefined') {
+          gsap.from('.why-card', {
+            scrollTrigger: { trigger: '#why-us-grid', start: 'top 82%', once: true },
+            y: 36,
+            opacity: 0,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: 'power3.out',
+            clearProps: 'all'
+          });
+
+          gsap.from('#roadmap-progress-line', {
+            scrollTrigger: { trigger: '#franchise-roadmap', start: 'top 80%', once: true },
+            scaleX: 0,
+            duration: 1.1,
+            ease: 'power2.out',
+            clearProps: 'all'
+          });
+
+          gsap.from('.roadmap-step', {
+            scrollTrigger: { trigger: '#franchise-roadmap', start: 'top 80%', once: true },
+            y: 32,
+            scale: 0.9,
+            opacity: 0,
+            duration: 0.65,
+            stagger: 0.14,
+            ease: 'back.out(1.5)',
+            clearProps: 'all'
+          });
+
+          gsap.from('.growth-pillar', {
+            scrollTrigger: { trigger: '#growth', start: 'top 85%', once: true },
+            y: 26,
+            scale: 0.92,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.12,
+            ease: 'power3.out',
+            clearProps: 'all'
+          });
+
+          gsap.from('.masonry-item', {
+            scrollTrigger: { trigger: '.masonry-grid', start: 'top 82%', once: true },
+            y: 34,
+            opacity: 0,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: 'power3.out',
+            clearProps: 'all'
+          });
+        }
+      }
+    } catch (e) {
+      console.warn('GSAP init skipped:', e);
+    }
+
+    // Interactive 3D Tilt on Hero Burger Showcase Card
+    const heroTiltCard = document.getElementById('hero-tilt-card');
+    if (heroTiltCard) {
+      heroTiltCard.addEventListener('mousemove', (e) => {
+        const rect = heroTiltCard.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        heroTiltCard.style.transform = `rotateY(${x * 11}deg) rotateX(${-y * 11}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      heroTiltCard.addEventListener('mouseleave', () => {
+        heroTiltCard.style.transform = 'rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1)';
+      });
+    }
+
+    /* ==========================================================================
+       7. GALLERY LIGHTBOX MODAL
+       ========================================================================== */
+    const galleryData = [
+      {
+        src: 'https://b.zmtcdn.com/data/dish_photos/60e/562ceec9bdcab8967d6808c3f6e1360e.jpeg',
+        caption: 'Premium Veggie Cheese Double Patty Burger — 100% Pure Veg Cafe'
+      },
+      {
+        src: 'https://b.zmtcdn.com/data/dish_photos/426/a128500eff5b1423fa74d1e85fbef426.jpeg',
+        caption: 'Peri-Peri Cheesy Lava Burger — Molten cheese & bold peri-peri spice'
+      },
+      {
+        src: 'https://b.zmtcdn.com/data/dish_photos/134/6213fd80d03cb1528011866dd926c134.png',
+        caption: 'Calling Deluxe Paneer Veggie Patty Cheese Burger — Signature house icon'
+      },
+      {
+        src: 'https://b.zmtcdn.com/data/dish_photos/31c/70c7fe9f406a93e8117b543cabd3931c.jpeg',
+        caption: 'Peri-Peri Cheesy Lava French Fries — Crispy golden fries loaded with cheese'
+      },
+      {
+        src: 'https://b.zmtcdn.com/data/dish_photos/fc4/2e24c4e693b32e15fcd7460cd5e57fc4.jpeg',
+        caption: 'Calling Special Crispy Paneer Burger — Golden-crisp spiced paneer stack'
+      },
+      {
+        src: 'https://b.zmtcdn.com/data/dish_photos/c34/1a7e63f1601b67db0fa071d8aec20c34.jpeg',
+        caption: '2 Calling Veggie Special Cheese Burger + 2 Coke (250ml) — Shareable combo'
+      }
+    ];
+    let currentLightboxIdx = 0;
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      updateLightboxContent();
+      lightboxModal.classList.remove('hidden');
+      lightboxModal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.add('hidden');
+      lightboxModal.classList.remove('flex');
+    }
+
+    function navigateLightbox(dir) {
+      currentLightboxIdx = (currentLightboxIdx + dir + galleryData.length) % galleryData.length;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const item = galleryData[currentLightboxIdx];
+      lightboxImg.src = item.src;
+      lightboxCaption.textContent = item.caption;
+    }
+
+    const franchiseModal = document.getElementById('franchise-modal');
+    function openFranchiseModal(prefillNote = '') {
+      if (!franchiseModal) return;
+      document.getElementById('franchise-form-view').classList.remove('hidden');
+      document.getElementById('franchiseSuccess').classList.add('hidden');
+      const formatSelect = document.getElementById('f-format');
+      if (formatSelect && selectedFranchiseFormat) {
+        formatSelect.value = selectedFranchiseFormat;
+      }
+      const notesInput = document.getElementById('f-notes');
+      if (notesInput) {
+        notesInput.value = prefillNote || '';
+      }
+      franchiseModal.classList.remove('hidden');
+      franchiseModal.classList.add('flex');
+    }
+
+    function closeFranchiseModal() {
+      if (!franchiseModal) return;
+      franchiseModal.classList.add('hidden');
+      franchiseModal.classList.remove('flex');
+    }
+
+    function resetFranchiseModal() {
+      document.getElementById('franchise-form-view').classList.remove('hidden');
+      document.getElementById('franchiseSuccess').classList.add('hidden');
+      document.getElementById('franchise-application-form').reset();
+    }
+
+    async function dispatchBackgroundEmail(subject, payloadObj) {
+      try {
+        const endpoint = BRAND_CONFIG.web3formsAccessKey
+          ? 'https://api.web3forms.com/submit'
+          : `https://formsubmit.co/ajax/${encodeURIComponent(BRAND_CONFIG.recipientEmail)}`;
+
+        const bodyData = BRAND_CONFIG.web3formsAccessKey
+          ? { access_key: BRAND_CONFIG.web3formsAccessKey, subject, ...payloadObj }
+          : { _subject: subject, _template: 'table', ...payloadObj };
+
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(bodyData)
+        });
+        return res.ok;
+      } catch (err) {
+        return false;
+      }
+    }
+
+    document.getElementById('franchise-application-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('franchise-submit-btn');
+      const originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Dispatching Inquiry...</span><i class="fa-solid fa-spinner fa-spin"></i>';
+
+      const name = document.getElementById('f-name').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      const email = document.getElementById('f-email').value.trim() || 'Not provided';
+      const city = document.getElementById('f-city').value.trim();
+      const format = document.getElementById('f-format').value;
+      const notes = document.getElementById('f-notes').value.trim() || 'None';
+      const timestamp = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+      const waMessage = [
+        `🍔 *NEW FRANCHISE ENQUIRY — ${BRAND_CONFIG.brandName}*`,
+        `━━━━━━━━━━━━━━━━━━━━`,
+        `👤 *Applicant:* ${name}`,
+        `📱 *Mobile / WhatsApp:* ${phone}`,
+        `📧 *Email:* ${email}`,
+        `📍 *Target City:* ${city}`,
+        `🏪 *Preferred Format:* ${format}`,
+        `📝 *Location & Property Notes:* ${notes}`,
+        `🕒 *Submitted:* ${timestamp}`
+      ].join('\n');
+
+      const waUrl = `https://wa.me/${BRAND_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMessage)}`;
+      const emailSubject = `New Franchise Enquiry: ${name} (${city}) — ${BRAND_CONFIG.brandName}`;
+      const mailtoUrl = `mailto:${BRAND_CONFIG.recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(waMessage.replace(/\*/g, ''))}`;
+
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      await dispatchBackgroundEmail(emailSubject, {
+        Applicant_Name: name,
+        Phone_WhatsApp: phone,
+        Email: email,
+        Target_City: city,
+        Preferred_Format: format,
+        Notes: notes,
+        Submitted_At: timestamp
+      });
+
+      document.getElementById('success-applicant-name').textContent = name;
+      document.getElementById('success-applicant-city').textContent = city;
+      document.getElementById('franchise-summary-box').innerHTML = `
+        <div><strong>Applicant:</strong> ${name} (${phone})</div>
+        <div><strong>Target City:</strong> ${city}</div>
+        <div><strong>Preferred Format:</strong> ${format}</div>
+        <div><strong>Notes:</strong> ${notes}</div>
+      `;
+      document.getElementById('reopen-whatsapp-btn').href = waUrl;
+      document.getElementById('fallback-mailto-btn').href = mailtoUrl;
+
+      document.getElementById('franchise-form-view').classList.add('hidden');
+      document.getElementById('franchiseSuccess').classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+      showToast('🚀 Franchise Enquiry sent to WhatsApp &amp; Email!');
+    });
+
+    function drawVectorBurgerCallingBadge(doc, cx, cy, r) {
+      // Black circular badge with golden ring
+      doc.setFillColor(15, 15, 15);
+      doc.setDrawColor(244, 180, 0);
+      doc.setLineWidth(r * 0.065);
+      doc.circle(cx, cy, r, 'FD');
+
+      // Top golden bun dome
+      doc.setFillColor(244, 180, 0);
+      doc.roundedRect(cx - r * 0.44, cy - r * 0.48, r * 0.88, r * 0.34, r * 0.17, r * 0.17, 'F');
+      doc.rect(cx - r * 0.44, cy - r * 0.30, r * 0.88, r * 0.16, 'F');
+
+      // White sesame seeds
+      doc.setFillColor(255, 255, 255);
+      const seeds = [
+        [-0.22, -0.37], [-0.07, -0.41], [0.07, -0.41], [0.22, -0.37],
+        [-0.28, -0.26], [-0.14, -0.27], [0, -0.27], [0.14, -0.27], [0.28, -0.26]
+      ];
+      seeds.forEach(([sx, sy]) => {
+        doc.ellipse(cx + r * sx, cy + r * sy, r * 0.036, r * 0.022, 'F');
+      });
+
+      // Middle patty bar
+      doc.setFillColor(244, 180, 0);
+      doc.roundedRect(cx - r * 0.46, cy - r * 0.09, r * 0.92, r * 0.08, r * 0.04, r * 0.04, 'F');
+
+      // Bottom bun
+      doc.roundedRect(cx - r * 0.44, cy + r * 0.04, r * 0.88, r * 0.19, r * 0.07, r * 0.07, 'F');
+      doc.setFillColor(15, 15, 15);
+      doc.roundedRect(cx - r * 0.16, cy + r * 0.04, r * 0.32, r * 0.11, r * 0.03, r * 0.03, 'F');
+
+      // Wordmark inside badge
+      doc.setTextColor(244, 180, 0);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(Math.max(5.5, r * 0.36));
+      doc.text('Burger Calling', cx, cy + r * 0.46, { align: 'center' });
+    }
+
+    function drawProspectusHeaderFooter(doc, pageNum, totalPages) {
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+
+      // --- PREMIUM RUNNING HEADER ---
+      doc.setFillColor(18, 18, 18);
+      doc.rect(0, 0, pageW, 24, 'F');
+      doc.setFillColor(255, 107, 0);
+      doc.rect(0, 24, pageW, 1.4, 'F');
+
+      drawVectorBurgerCallingBadge(doc, 18, 12, 7.5);
+
+      doc.setTextColor(255, 255, 255);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(12);
+      doc.text('BURGER', 29, 11.5);
+      doc.setTextColor(244, 180, 0);
+      doc.text('CALLING', 48.5, 11.5);
+
+      doc.setTextColor(74, 222, 128);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.text('100% PURE VEG CAFE  |  CHHATTISGARH, INDIA', 29, 17);
+
+      doc.setTextColor(210, 210, 210);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.text('OFFICIAL FRANCHISE PROSPECTUS', pageW - 14, 11.5, { align: 'right' });
+      doc.setTextColor(244, 180, 0);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.text('Your Burger. Your Business. Your Brand.', pageW - 14, 17, { align: 'right' });
+
+      // --- PREMIUM RUNNING FOOTER ---
+      doc.setFillColor(18, 18, 18);
+      doc.rect(0, pageH - 16, pageW, 16, 'F');
+      doc.setFillColor(244, 180, 0);
+      doc.rect(0, pageH - 16.8, pageW, 0.8, 'F');
+
+      doc.setTextColor(220, 220, 220);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.text('BURGER CALLING  •  Chhattisgarh, India  •  +91 83588 51237  •  @burgercalling.india', 14, pageH - 6.5);
+
+      doc.setTextColor(244, 180, 0);
+      doc.setFont('helvetica', 'bold');
+      doc.text(`Page ${pageNum} of ${totalPages}`, pageW - 14, pageH - 6.5, { align: 'right' });
+    }
+
+    function downloadFranchiseBrochure() {
+      try {
+        if (!window.jspdf || !window.jspdf.jsPDF) {
+          showToast('⚠️ PDF generator is loading. Please try again in a moment.');
+          return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const pageW = doc.internal.pageSize.getWidth();
+        const pageH = doc.internal.pageSize.getHeight();
+        const margin = 14;
+        const contentW = pageW - margin * 2;
+
+        // ==================================================================
+        // PAGE 1: LUXURY HERO COVER BANNER, ORIGIN & 3 FRANCHISE FORMATS
+        // ==================================================================
+        // Hero dark executive card below header
+        doc.setFillColor(24, 24, 27);
+        doc.roundedRect(margin, 31, contentW, 56, 5, 5, 'F');
+        doc.setDrawColor(244, 180, 0);
+        doc.setLineWidth(0.5);
+        doc.roundedRect(margin, 31, contentW, 56, 5, 5, 'S');
+
+        drawVectorBurgerCallingBadge(doc, pageW - 36, 59, 17);
+
+        doc.setFillColor(255, 107, 0);
+        doc.roundedRect(margin + 8, 38, 54, 6.5, 3, 3, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        doc.text('CHHATTISGARH EXPANSION', margin + 35, 42.5, { align: 'center' });
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(20);
+        doc.text('Own Your Business.', margin + 8, 54);
+        doc.setTextColor(244, 180, 0);
+        doc.text('Own Your Brand.', margin + 8, 63);
+
+        doc.setTextColor(215, 215, 220);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9.5);
+        const introLines = doc.splitTextToSize(
+          'Born in Chhattisgarh, India, Burger Calling is a modern 100% pure-vegetarian quick-service burger brand inviting driven entrepreneurs to launch flagship outlets across the state.',
+          contentW - 56
+        );
+        doc.text(introLines, margin + 8, 71);
+
+        // Section 1: Brand Vision & Pure-Veg Edge
+        let y = 96;
+        doc.setTextColor(255, 107, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.text('01  |  BRAND STORY & PURE-VEG ADVANTAGE', margin, y);
+
+        y += 5;
+        doc.setFillColor(249, 250, 251);
+        doc.setDrawColor(229, 231, 235);
+        doc.roundedRect(margin, y, contentW, 34, 4, 4, 'FD');
+
+        doc.setTextColor(26, 26, 26);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text('Why 100% Pure-Veg QSR Wins Families & Youth', margin + 6, y + 8);
+
+        doc.setTextColor(75, 85, 99);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        const storyText = doc.splitTextToSize(
+          'Burger Calling combines bold Peri-Peri lava burgers, crispy paneer creations, double-patty signatures, and loaded fries inside a dedicated 100% pure-vegetarian kitchen. Our black-and-gold store identity and streamlined QSR assembly deliver uniform taste across dine-in, takeaway, and online delivery.',
+          contentW - 12
+        );
+        doc.text(storyText, margin + 6, y + 15);
+
+        // Section 2: Three Official Franchise Store Formats
+        y += 43;
+        doc.setTextColor(255, 107, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.text('02  |  AVAILABLE FRANCHISE STORE FORMATS', margin, y);
+
+        y += 5;
+        const formats = [
+          {
+            tag: 'FORMAT A',
+            title: 'Express Kiosk',
+            desc: 'Compact counter or modular kiosk engineered for high-footfall grab-and-go zones.',
+            bullets: ['Colleges, markets & transit hubs', 'Compact footprint & rapid setup', 'Complete branding & SOP training'],
+            dark: false
+          },
+          {
+            tag: 'FORMAT B  •  POPULAR',
+            title: 'Mini Outlet',
+            desc: 'High-street retail shop blending brisk takeaway counters with cozy indoor seating.',
+            bullets: ['Main city markets & commercial hubs', 'Takeaway, seating & online delivery', 'Illuminated black-and-gold fascia'],
+            dark: true
+          },
+          {
+            tag: 'FORMAT C',
+            title: 'Signature Restaurant',
+            desc: 'Full-scale 100% pure-veg burger café built for family dine-in and multi-channel volume.',
+            bullets: ['Full dine-in café & open kitchen', 'Dine-in, takeaway & delivery engine', 'Flagship neighborhood landmark'],
+            dark: false
+          }
+        ];
+
+        const cardGap = 4;
+        const cardW = (contentW - cardGap * 2) / 3;
+        const cardH = 66;
+
+        formats.forEach((fmt, i) => {
+          const cx = margin + i * (cardW + cardGap);
+          if (fmt.dark) {
+            doc.setFillColor(24, 24, 27);
+            doc.setDrawColor(244, 180, 0);
+          } else {
+            doc.setFillColor(249, 250, 251);
+            doc.setDrawColor(229, 231, 235);
+          }
+          doc.roundedRect(cx, y, cardW, cardH, 4, 4, 'FD');
+
+          doc.setTextColor(fmt.dark ? 244 : 255, fmt.dark ? 180 : 107, 0);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(7);
+          doc.text(fmt.tag, cx + 5, y + 7);
+
+          doc.setTextColor(fmt.dark ? 255 : 26, fmt.dark ? 255 : 26, fmt.dark ? 255 : 26);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(11.5);
+          doc.text(fmt.title, cx + 5, y + 14.5);
+
+          doc.setTextColor(fmt.dark ? 209 : 85, fmt.dark ? 213 : 92, fmt.dark ? 219 : 104);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8);
+          const descLines = doc.splitTextToSize(fmt.desc, cardW - 10);
+          doc.text(descLines, cx + 5, y + 21);
+
+          let by = y + 37;
+          fmt.bullets.forEach((b) => {
+            doc.setFillColor(255, 107, 0);
+            doc.circle(cx + 6.5, by - 1, 1, 'F');
+            doc.setTextColor(fmt.dark ? 240 : 45, fmt.dark ? 240 : 45, fmt.dark ? 240 : 45);
+            doc.setFontSize(7.5);
+            const bLines = doc.splitTextToSize(b, cardW - 14);
+            doc.text(bLines, cx + 9.5, by);
+            by += bLines.length * 4.2 + 2;
+          });
+        });
+
+        // Section 3: Signature Menu Pillars
+        y += cardH + 9;
+        doc.setTextColor(255, 107, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.text('03  |  SIGNATURE 100% PURE-VEG MENU LINEUP', margin, y);
+
+        y += 5;
+        doc.setFillColor(255, 247, 237);
+        doc.setDrawColor(254, 215, 170);
+        doc.roundedRect(margin, y, contentW, 28, 4, 4, 'FD');
+
+        const menuCategories = [
+          ['Peri-Peri Lava Burgers', 'Cheesy Lava, Cheese Blast & Veggie Calling'],
+          ['Crispy Paneer Specials', 'Deluxe Paneer Veggie Patty & Spicy Indian Paneer'],
+          ['Premium Double Patty', 'Aloo Tikki, Veggie Cheese & Hotline Double'],
+          ['Loaded Fries & Combos', 'Peri-Peri Lava Fries, Cheese Fries & Coke Combos']
+        ];
+        menuCategories.forEach(([catTitle, catSub], idx) => {
+          const col = idx % 2;
+          const row = Math.floor(idx / 2);
+          const mx = margin + 6 + col * (contentW / 2);
+          const my = y + 8 + row * 12;
+          doc.setTextColor(26, 26, 26);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(8.5);
+          doc.text(`• ${catTitle}:`, mx, my);
+          doc.setTextColor(85, 92, 104);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8);
+          doc.text(catSub, mx + 3, my + 4.2);
+        });
+
+        // ==================================================================
+        // PAGE 2: PARTNER SUPPORT, PRIORITY CITIES, ROADMAP & CONTACT
+        // ==================================================================
+        doc.addPage();
+        let y2 = 33;
+
+        doc.setTextColor(255, 107, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.text('04  |  END-TO-END FRANCHISE PARTNER SUPPORT', margin, y2);
+
+        y2 += 5;
+        const supportPillars = [
+          { title: 'Established Brand Identity', desc: 'Operate under the trusted Burger Calling 100% Pure Veg Cafe trademark and visual system.' },
+          { title: 'Ready Menu & House Recipes', desc: 'Standardized recipes, portion control guides, and crowd-favorite pure-veg formulations.' },
+          { title: 'Store Branding & Interior Layout', desc: '3D signage specifications, digital menu boards, and modular counter blueprints.' },
+          { title: 'Commercial Kitchen Guidance', desc: 'Equipment selection, ventilation planning, and ergonomic QSR workflow setup.' },
+          { title: 'Hands-On Staff & Chef Training', desc: 'Practical preparation, hygiene checklists, and speed-of-service training for your team.' },
+          { title: 'Launch Marketing & Clear SOPs', desc: 'Grand opening promotional toolkits, online delivery onboarding, and daily operating SOPs.' }
+        ];
+
+        const supW = (contentW - 6) / 2;
+        const supH = 23;
+        supportPillars.forEach((sp, idx) => {
+          const col = idx % 2;
+          const row = Math.floor(idx / 2);
+          const sx = margin + col * (supW + 6);
+          const sy = y2 + row * (supH + 4);
+
+          doc.setFillColor(249, 250, 251);
+          doc.setDrawColor(229, 231, 235);
+          doc.roundedRect(sx, sy, supW, supH, 3.5, 3.5, 'FD');
+
+          doc.setFillColor(255, 107, 0);
+          doc.rect(sx, sy + 4, 1.8, supH - 8, 'F');
+
+          doc.setTextColor(26, 26, 26);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(9.5);
+          doc.text(sp.title, sx + 5.5, sy + 7.5);
+
+          doc.setTextColor(75, 85, 99);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8);
+          const spLines = doc.splitTextToSize(sp.desc, supW - 10);
+          doc.text(spLines, sx + 5.5, sy + 13);
+        });
+
+        // Section 5: Priority Expansion Cities & Prime Site Zones
+        y2 += (supH + 4) * 3 + 6;
+        doc.setTextColor(255, 107, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.text('05  |  PRIORITY CHHATTISGARH CITIES & HIGH-FOOTFALL ZONES', margin, y2);
+
+        y2 += 5;
+        doc.setFillColor(24, 24, 27);
+        doc.roundedRect(margin, y2, contentW, 44, 4, 4, 'F');
+
+        doc.setTextColor(244, 180, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text('Primary Rollout Cities:', margin + 6, y2 + 8.5);
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9.5);
+        doc.text('Raipur   •   Durg-Bhilai   •   Korba   •   Raigarh   •   Janjgir-Champa   •   Chhattisgarh', margin + 6, y2 + 15.5);
+
+        doc.setDrawColor(60, 60, 68);
+        doc.line(margin + 6, y2 + 19.5, pageW - margin - 6, y2 + 19.5);
+
+        doc.setTextColor(244, 180, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.text('Ideal Location Categories:', margin + 6, y2 + 26);
+
+        doc.setTextColor(215, 215, 220);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.3);
+        const zoneLines = doc.splitTextToSize(
+          'Main City Markets • Shopping Malls & Food Courts • Colleges & Coaching Hubs • Railway Stations, Bus Terminals & Airports • Highway Food Plazas & Fuel Stations • Corporate Parks & Residential Townships',
+          contentW - 12
+        );
+        doc.text(zoneLines, margin + 6, y2 + 31.5);
+
+        // Section 6: Onboarding Journey
+        y2 += 52;
+        doc.setTextColor(255, 107, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.5);
+        doc.text('06  |  STREAMLINED ONBOARDING JOURNEY', margin, y2);
+
+        y2 += 5;
+        const steps = [
+          ['Submit Inquiry', 'Share name, contact & city'],
+          ['Discovery Call', 'Review formats & site fit'],
+          ['Flagship Visit', 'Tour kitchen & taste menu'],
+          ['Setup & Training', 'Branding, kitchen & SOPs'],
+          ['Grand Opening', 'Launch with brand support']
+        ];
+        const stepW = (contentW - 12) / 5;
+        steps.forEach(([stTitle, stSub], idx) => {
+          const stX = margin + idx * (stepW + 3);
+          const isLast = idx === steps.length - 1;
+          doc.setFillColor(isLast ? 255 : 249, isLast ? 107 : 250, isLast ? 0 : 251);
+          doc.setDrawColor(isLast ? 255 : 229, isLast ? 107 : 231, isLast ? 0 : 235);
+          doc.roundedRect(stX, y2, stepW, 24, 3, 3, 'FD');
+
+          doc.setTextColor(isLast ? 255 : 26, isLast ? 255 : 26, isLast ? 255 : 26);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(8);
+          doc.text(stTitle, stX + stepW / 2, y2 + 9, { align: 'center' });
+
+          doc.setTextColor(isLast ? 255 : 95, isLast ? 245 : 102, isLast ? 235 : 114);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(7);
+          const subL = doc.splitTextToSize(stSub, stepW - 4);
+          doc.text(subL, stX + stepW / 2, y2 + 14.5, { align: 'center' });
+        });
+
+        // Section 7: Direct Franchise Enquiry Box & Disclaimer
+        y2 += 32;
+        doc.setFillColor(255, 247, 237);
+        doc.setDrawColor(255, 107, 0);
+        doc.roundedRect(margin, y2, contentW, 28, 4, 4, 'FD');
+
+        doc.setTextColor(26, 26, 26);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text('Connect With Our Franchise Expansion Desk', margin + 6, y2 + 8.5);
+
+        doc.setTextColor(55, 65, 81);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.text('Phone / WhatsApp: +91 83588 51237   |   Instagram: @burgercalling.india', margin + 6, y2 + 15.5);
+        doc.text('Headquarters: Chhattisgarh, India', margin + 6, y2 + 21.5);
+
+        y2 += 33;
+        doc.setTextColor(120, 125, 135);
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(7.3);
+        const discLines = doc.splitTextToSize(
+          'Important Notice: This prospectus is intended solely for preliminary franchise information and invitation purposes and does not constitute a binding commercial offer. Final store specifications, site approvals, and territorial rights are governed by the executed franchise agreement.',
+          contentW
+        );
+        doc.text(discLines, margin, y2);
+
+        // Apply running header & footer to every page
+        const totalPages = doc.internal.getNumberOfPages();
+        for (let p = 1; p <= totalPages; p++) {
+          doc.setPage(p);
+          drawProspectusHeaderFooter(doc, p, totalPages);
+        }
+
+        doc.save('Burger-Calling-Official-Franchise-Prospectus.pdf');
+        showToast('📄 Official Burger Calling PDF Prospectus downloaded!');
+      } catch (err) {
+        console.error('PDF generation error:', err);
+        showToast('⚠️ Could not generate PDF. Please try again.');
+      }
+    }
+
+    /* ==========================================================================
+       6B. HIGH-POTENTIAL FRANCHISE LOCATIONS DIRECTORY (100% ENGLISH, ZERO NUMBERS)
+       ========================================================================== */
+    const FRANCHISE_LOCATION_ZONES = [
+      {
+        id: 'transport',
+        icon: 'fa-train-subway',
+        title: 'Transport & Travel Hubs',
+        subtitle: 'High-footfall commuter & highway corridors',
+        items: [
+          'Bus Stand & Inter-City Terminals',
+          'Railway Station Platforms & Concourses',
+          'Airport Terminals & Lounges',
+          'National & State Highway Corridors',
+          'Petrol Pumps & EV Charging Plazas',
+          'Truck Transport Nagars',
+          'Taxi & Auto Stand Hubs',
+          'Bus Depots & Highway Food Plazas'
+        ]
+      },
+      {
+        id: 'shopping',
+        icon: 'fa-bag-shopping',
+        title: 'Shopping & Retail Markets',
+        subtitle: 'High-street retail & entertainment destinations',
+        items: [
+          'Major Shopping Malls',
+          'Mall Food Courts',
+          'Main City Markets',
+          'Commercial Shopping Complexes',
+          'Supermarkets & Departmental Stores',
+          'Textile & Garment Markets',
+          'Electronics Markets',
+          'Cinema Halls & Multiplexes'
+        ]
+      },
+      {
+        id: 'education',
+        icon: 'fa-graduation-cap',
+        title: 'Education & Youth Hubs',
+        subtitle: 'Vibrant student & campus communities',
+        items: [
+          'Colleges & University Campuses',
+          'Coaching Institute Clusters',
+          'Student Hostel & PG Neighborhoods',
+          'School Vicinities (Subject to Approval)',
+          'Libraries & Study Centers',
+          'Sports Academies'
+        ]
+      },
+      {
+        id: 'tourism',
+        icon: 'fa-umbrella-beach',
+        title: 'Leisure & Tourism',
+        subtitle: 'Family recreation & hospitality venues',
+        items: [
+          'Public Parks & Gardens',
+          'Water Parks & Amusement Zones',
+          'Popular Tourist Destinations',
+          'Hotels & Resorts',
+          'Marriage Gardens & Banquet Halls',
+          'Sports Stadiums & Picnic Spots'
+        ]
+      },
+      {
+        id: 'business',
+        icon: 'fa-building',
+        title: 'Business & Corporate Hubs',
+        subtitle: 'Daily office & industrial workforce zones',
+        items: [
+          'Corporate Office Complexes',
+          'IT Parks & Business Parks',
+          'Industrial & Factory Areas',
+          'Government & Private Office Clusters',
+          'Court Vicinities (Subject to Approval)',
+          'Banking & Financial Districts'
+        ]
+      },
+      {
+        id: 'residential',
+        icon: 'fa-house-chimney',
+        title: 'Residential Townships',
+        subtitle: 'Neighborhood family dining hotspots',
+        items: [
+          'Large Residential Colonies',
+          'Integrated Apartments & Townships',
+          'Newly Developed Residential Sectors',
+          'Prime Residential Neighborhoods',
+          'Market-Adjacent Housing Zones'
+        ]
+      },
+      {
+        id: 'special',
+        icon: 'fa-star',
+        title: 'Turnkey Counter & Kiosk Formats',
+        subtitle: 'Specialized quick-service footprints',
+        items: [
+          'Fuel Station Food Kiosk',
+          'Bus Terminal Takeaway Counter',
+          'Railway Platform Express Counter',
+          'Shopping Mall Food Court Counter',
+          'College Campus Burger Calling Counter',
+          'In-Hotel & Hospital Canteen Counters',
+          'Corporate Cafeteria & Highway Drive-Through',
+          'Event & Food Festival Pop-Up Stalls'
+        ]
+      }
+    ];
+
+    let activeLocCategory = 'all';
+    let activeLocQuery = '';
+
+    function renderFranchiseLocations() {
+      const grid = document.getElementById('locations-grid');
+      if (!grid) return;
+
+      const q = activeLocQuery.toLowerCase().trim();
+      const filteredZones = FRANCHISE_LOCATION_ZONES
+        .filter((zone) => activeLocCategory === 'all' || zone.id === activeLocCategory)
+        .map((zone) => {
+          const matchedItems = q
+            ? zone.items.filter((label) => label.toLowerCase().includes(q) || zone.title.toLowerCase().includes(q))
+            : zone.items;
+          return { ...zone, items: matchedItems };
+        })
+        .filter((zone) => zone.items.length > 0);
+
+      if (filteredZones.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-10 bg-white rounded-2xl border border-gray-200">
+            <p class="font-heading font-bold text-base text-brand-black">No matching location zones found</p>
+            <p class="text-xs text-gray-500 mt-1">Try searching another keyword like "Mall", "Station", "College", or "Highway".</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filteredZones.map((zone) => `
+        <div class="p-6 rounded-3xl bg-white border border-gray-200/90 shadow-sm hover:border-brand-orange/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+              <div class="w-10 h-10 rounded-xl bg-brand-black text-brand-gold flex items-center justify-center shrink-0">
+                <i class="fa-solid ${zone.icon}"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-base text-brand-black leading-snug">${zone.title}</h4>
+                <p class="text-[11px] text-gray-500 font-medium">${zone.subtitle}</p>
+              </div>
+            </div>
+            <ul class="mt-4 space-y-2">
+              ${zone.items.map((label) => `
+                <li>
+                  <button type="button" onclick="openFranchiseModal('Preferred Location Type: ${label}')" class="w-full text-left group flex items-center justify-between gap-2 p-2.5 rounded-xl hover:bg-orange-50/80 transition-colors">
+                    <span class="flex items-center gap-2.5 text-xs sm:text-sm text-gray-800 group-hover:text-brand-black font-medium">
+                      <span class="w-2 h-2 rounded-full bg-brand-orange shrink-0"></span>
+                      <span>${label}</span>
+                    </span>
+                    <span class="text-[10px] font-heading font-bold text-brand-orange opacity-0 group-hover:opacity-100 transition-opacity shrink-0">Inquire →</span>
+                  </button>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    renderFranchiseLocations();
+
+    document.querySelectorAll('.loc-cat-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.loc-cat-btn').forEach((b) => {
+          b.className = 'loc-cat-btn px-4 py-2 rounded-full font-heading font-bold text-xs bg-white text-gray-700 border border-gray-200 hover:border-brand-orange hover:text-brand-orange transition-all';
+        });
+        btn.className = 'loc-cat-btn active px-4 py-2 rounded-full font-heading font-bold text-xs bg-brand-black text-white transition-all';
+        activeLocCategory = btn.getAttribute('data-loc-cat');
+        renderFranchiseLocations();
+      });
+    });
+
+    const locSearchInput = document.getElementById('location-search-input');
+    if (locSearchInput) {
+      locSearchInput.addEventListener('input', (e) => {
+        activeLocQuery = e.target.value;
+        renderFranchiseLocations();
+      });
+    }
+
+    /* ==========================================================================
+       7. GALLERY LIGHTBOX MODAL (DE-DUPLICATED)
+       ========================================================================== */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeFranchiseModal();
+        closeProspectusModal();
+        closeLegalModal();
+        closeMobileMenu();
+      } else if (!lightboxModal.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      }
+    });
+
+    /* ==========================================================================
+       11. CONTACT FORM DUAL DISPATCHER, LEGAL MODALS & RIPPLE MICRO-INTERACTIONS
+       ========================================================================== */
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('contact-submit-btn');
+      const originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending Message...</span><i class="fa-solid fa-spinner fa-spin"></i>';
+
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const topic = document.getElementById('contact-topic').value;
+      const message = document.getElementById('contact-message').value.trim();
+      const timestamp = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+      const waText = [
+        `📩 *WEBSITE INQUIRY — ${BRAND_CONFIG.brandName}*`,
+        `━━━━━━━━━━━━━━━━━━━━`,
+        `👤 *Name:* ${name}`,
+        `📱 *Phone:* ${phone}`,
+        `📧 *Email:* ${email}`,
+        `🏷️ *Topic:* ${topic}`,
+        `💬 *Message:* ${message}`,
+        `🕒 *Time:* ${timestamp}`
+      ].join('\n');
+
+      const waUrl = `https://wa.me/${BRAND_CONFIG.whatsappNumber}?text=${encodeURIComponent(waText)}`;
+      const emailSubject = `Website Inquiry (${topic}): ${name} — ${BRAND_CONFIG.brandName}`;
+      const mailtoUrl = `mailto:${BRAND_CONFIG.recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(waText.replace(/\*/g, ''))}`;
+
+      // Open WhatsApp pre-filled message in new tab
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      // Send silent background email
+      await dispatchBackgroundEmail(emailSubject, {
+        Name: name,
+        Email: email,
+        Phone: phone,
+        Inquiry_Topic: topic,
+        Message: message,
+        Submitted_At: timestamp
+      });
+
+      document.getElementById('contact-wa-fallback').href = waUrl;
+      document.getElementById('contact-mailto-fallback').href = mailtoUrl;
+      document.getElementById('contact-success-bar').classList.remove('hidden');
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+      e.target.reset();
+      showToast(`✅ Thank you, <strong>${name}</strong>! Sent to WhatsApp &amp; Email.`);
+    });
+
+    function openLegalModal(type) {
+      const modal = document.getElementById('legal-modal');
+      const title = document.getElementById('legal-title');
+      const body = document.getElementById('legal-body');
+      if (type === 'privacy') {
+        title.textContent = 'Privacy Policy';
+        body.textContent = 'BURGER CALLING Foods Pvt. Ltd. (Chhattisgarh) respects your data privacy. Information submitted via our contact form or franchise inquiry portal is strictly confidential and used solely to respond to guest inquiries or evaluate franchise applications.';
+      } else {
+        title.textContent = 'Terms & Franchise Disclaimer';
+        body.textContent = 'Online food ordering is fulfilled via our official Zomato storefront in Chhattisgarh. Franchise model details, store formats, and territorial availability are subject to formal evaluation and mutual agreement.';
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLegalModal() {
+      const modal = document.getElementById('legal-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openProspectusModal() {
+      const modal = document.getElementById('prospectus-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProspectusModal() {
+      const modal = document.getElementById('prospectus-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Button Ripple Effect
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.ripple-trigger');
+      if (!btn) return;
+      const circle = document.createElement('span');
+      const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+      const radius = diameter / 2;
+      const rect = btn.getBoundingClientRect();
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${e.clientX - rect.left - radius}px`;
+      circle.style.top = `${e.clientY - rect.top - radius}px`;
+      circle.classList.add('ripple-effect');
+      const existingRipple = btn.querySelector('.ripple-effect');
+      if (existingRipple) existingRipple.remove();
+      btn.appendChild(circle);
+    });
+
+    // Toast Notification Helper
+    function showToast(htmlMessage) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'px-5 py-3.5 rounded-2xl bg-brand-black text-white text-xs sm:text-sm shadow-2xl border border-white/15 flex items-center justify-between gap-3 transform translate-y-4 opacity-0 transition-all duration-300';
+      toast.innerHTML = `<span>${htmlMessage}</span><i class="fa-solid fa-circle-check text-brand-gold"></i>`;
+      container.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      });
+      setTimeout(() => {
+        toast.classList.add('translate-y-4', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3400);
+    }
+  </script>
+</body>
+</html>
