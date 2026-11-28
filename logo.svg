@@ -1,1 +1,17 @@
-data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2257%22%20fill%3D%22%230B0B0B%22%20stroke%3D%22%23F4B400%22%20stroke-width%3D%224%22%2F%3E%3Cpath%20d%3D%22M34%2050C34%2036.7452%2045.6406%2026%2060%2026C74.3594%2026%2086%2036.7452%2086%2050H34Z%22%20fill%3D%22%23F4B400%22%2F%3E%3Cellipse%20cx%3D%2247%22%20cy%3D%2236%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2255.5%22%20cy%3D%2233%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2264.5%22%20cy%3D%2233%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2273%22%20cy%3D%2236%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2242%22%20cy%3D%2243%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2251%22%20cy%3D%2242%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2260%22%20cy%3D%2242%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2269%22%20cy%3D%2242%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cellipse%20cx%3D%2278%22%20cy%3D%2243%22%20rx%3D%222.4%22%20ry%3D%221.4%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Crect%20x%3D%2233%22%20y%3D%2253.5%22%20width%3D%2254%22%20height%3D%224.8%22%20rx%3D%222.4%22%20fill%3D%22%23F4B400%22%2F%3E%3Cpath%20d%3D%22M34%2061.5H86V65C86%2069.4183%2082.4183%2073%2078%2073H42C37.5817%2073%2034%2069.4183%2034%2065V61.5Z%22%20fill%3D%22%23F4B400%22%2F%3E%3Cpath%20d%3D%22M50%2061.5H70L66.5%2067.5C65.7%2068.8%2064.3%2069.5%2062.8%2069.5H57.2C55.7%2069.5%2054.3%2068.8%2053.5%2067.5L50%2061.5Z%22%20fill%3D%22%230B0B0B%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2288%22%20text-anchor%3D%22middle%22%20fill%3D%22%23F4B400%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2211.2%22%20letter-spacing%3D%22-0.2%22%3EBurger%20Calling%3C%2Ftext%3E%3C%2Fsvg%3E
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="57" fill="#0B0B0B" stroke="#F4B400" stroke-width="4" />
+  <path d="M34 50C34 36.7452 45.6406 26 60 26C74.3594 26 86 36.7452 86 50H34Z" fill="#F4B400" />
+  <ellipse cx="47" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="55.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="64.5" cy="33" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="73" cy="36" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="42" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="51" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="60" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="69" cy="42" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <ellipse cx="78" cy="43" rx="2.4" ry="1.4" fill="#FFFFFF" />
+  <rect x="33" y="53.5" width="54" height="4.8" rx="2.4" fill="#F4B400" />
+  <path d="M34 61.5H86V65C86 69.4183 82.4183 73 78 73H42C37.5817 73 34 69.4183 34 65V61.5Z" fill="#F4B400" />
+  <path d="M50 61.5H70L66.5 67.5C65.7 68.8 64.3 69.5 62.8 69.5H57.2C55.7 69.5 54.3 68.8 53.5 67.5L50 61.5Z" fill="#0B0B0B" />
+  <text x="60" y="88" text-anchor="middle" fill="#F4B400" font-family="Arial, sans-serif" font-weight="800" font-size="11.2" letter-spacing="-0.2">Burger Calling</text>
+</svg>
